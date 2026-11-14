@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://j8007vivwtyi"]
+
+[ext_resource type="ArrayMesh" uid="uid://t1yxi2lylwty" path="res://Models/Resorte/resorte1.obj" id="1_g0t04"]
+[ext_resource type="Script" uid="uid://uwbjruqriif2" path="res://Escenas/resorte.gd" id="1_ujyix"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+
+[node name="Resorte" type="Area3D" unique_id=225736389]
+script = ExtResource("1_ujyix")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1597404797]
+mesh = ExtResource("1_g0t04")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=659801536]
+transform = Transform3D(1.295, 0, 0, 0, 1.295, 0, 0, 0, 1.295, 0.047864676, 0.51762533, -0.049625993)
+shape = SubResource("SphereShape3D_0emdt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
