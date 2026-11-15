@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cg3u8yl2dm6an"
-path="res://.godot/imported/BRAZO - copia.glb-813498daa5e7fe259c6f9793e5abbcb5.scn"
+uid="uid://63sodnp4x6wo"
+path="res://.godot/imported/Rotores_Coaxiales (1).glb-d2e966e6a049119135696dd0c02b4698.scn"
 
 [deps]
 
-source_file="res://Models/BRAZO - copia.glb"
-dest_files=["res://.godot/imported/BRAZO - copia.glb-813498daa5e7fe259c6f9793e5abbcb5.scn"]
+source_file="res://Models/Objetos/Rotores_Coaxiales (1).glb"
+dest_files=["res://.godot/imported/Rotores_Coaxiales (1).glb-d2e966e6a049119135696dd0c02b4698.scn"]
 
 [params]
 

@@ -34,6 +34,23 @@
 [ext_resource type="Shape3D" uid="uid://b7aa35t6b6pit" path="res://Colisions/Mars/MarsCollisionShape14.tres" id="29_bwxi5"]
 [ext_resource type="Shape3D" uid="uid://ckaso6uaks6ag" path="res://Colisions/Mars/MarsCollisionShape15.tres" id="31_fxvwn"]
 [ext_resource type="Shape3D" uid="uid://b26g3ayna1qev" path="res://Colisions/Mars/MarsCollisionShape16.tres" id="33_syl8u"]
+[ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Escenas/NivelLuna.gdshader" id="35_pogxw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0emdt"]
+size = Vector3(106.54321, 10.716797, 1.9949951)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gca50"]
+shader = ExtResource("35_pogxw")
+shader_parameter/sky_color = Color(0.01, 0.01, 0.03, 1)
+shader_parameter/star_density = 600.0
+shader_parameter/star_threshold = 0.78
+
+[sub_resource type="Sky" id="Sky_pl24t"]
+sky_material = SubResource("ShaderMaterial_gca50")
+
+[sub_resource type="Environment" id="Environment_w1toi"]
+background_mode = 2
+sky = SubResource("Sky_pl24t")
 
 [node name="NivelMarte" type="Node3D" unique_id=2031046114]
 
@@ -216,9 +233,18 @@ mesh = ExtResource("17_yprvo")
 visible = false
 shape = ExtResource("33_syl8u")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno" unique_id=679493652]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/StaticBody3D" unique_id=1189283040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.335213, 4.8583984, 45.96144)
+shape = SubResource("BoxShape3D_0emdt")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1212595775]
 transform = Transform3D(-2.4510593e-08, 0.9974324, -0.07161543, 3.6192763e-08, 0.07161543, 0.9974324, 1, 2.1855701e-08, -3.7855177e-08, 22.401745, 32.143196, -3.4106598)
 light_energy = 2.064
 
 [node name="MoonBot" parent="." unique_id=330879505 instance=ExtResource("3_y4r3m")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6719, 6.801058, 33.62386)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=106632202]
+environment = SubResource("Environment_w1toi")

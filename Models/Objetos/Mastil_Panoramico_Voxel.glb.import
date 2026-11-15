@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wc8yok26p310"
-path="res://.godot/imported/ROCAS - copia.glb-3bea1618bf49f0d4b16e91cdcebfd00a.scn"
+uid="uid://blsvt0lmnnmvg"
+path="res://.godot/imported/Mastil_Panoramico_Voxel.glb-acbf9f416bb3ab95dac2fb4bf3b82789.scn"
 
 [deps]
 
-source_file="res://Models/ROCAS - copia.glb"
-dest_files=["res://.godot/imported/ROCAS - copia.glb-3bea1618bf49f0d4b16e91cdcebfd00a.scn"]
+source_file="res://Models/Objetos/Mastil_Panoramico_Voxel.glb"
+dest_files=["res://.godot/imported/Mastil_Panoramico_Voxel.glb-acbf9f416bb3ab95dac2fb4bf3b82789.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ciy85xkq8jwph"
-path="res://.godot/imported/FUSIBLE.glb-7dae3808bbdf2160f89ea7422a5c9c0a.scn"
+uid="uid://bf5v7p1bxfmjc"
+path="res://.godot/imported/Tren_Aterrizaje_NavCam (1).glb-3f48875ed3354260710886e042d3cc8c.scn"
 
 [deps]
 
-source_file="res://Models/FUSIBLE.glb"
-dest_files=["res://.godot/imported/FUSIBLE.glb-7dae3808bbdf2160f89ea7422a5c9c0a.scn"]
+source_file="res://Models/Objetos/Tren_Aterrizaje_NavCam (1).glb"
+dest_files=["res://.godot/imported/Tren_Aterrizaje_NavCam (1).glb-3f48875ed3354260710886e042d3cc8c.scn"]
 
 [params]
 

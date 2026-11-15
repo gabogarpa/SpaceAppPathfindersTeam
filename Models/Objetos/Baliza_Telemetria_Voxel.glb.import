@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cy41g1un2l1xf"
-path="res://.godot/imported/RUEDA.glb-d579e5b91993fa4f88ba038a45be8ce4.scn"
+uid="uid://c3l8t2jlsaxuj"
+path="res://.godot/imported/Baliza_Telemetria_Voxel.glb-22bd036db3a12fa98944230cc2263bba.scn"
 
 [deps]
 
-source_file="res://Models/RUEDA.glb"
-dest_files=["res://.godot/imported/RUEDA.glb-d579e5b91993fa4f88ba038a45be8ce4.scn"]
+source_file="res://Models/Objetos/Baliza_Telemetria_Voxel.glb"
+dest_files=["res://.godot/imported/Baliza_Telemetria_Voxel.glb-22bd036db3a12fa98944230cc2263bba.scn"]
 
 [params]
 

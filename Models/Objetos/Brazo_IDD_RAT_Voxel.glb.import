@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b7sv45kthr2um"
-path="res://.godot/imported/SNAP-27  - copia.glb-4976321d8ea34ef7eba8611b14b7c9d5.scn"
+uid="uid://cm7i8wwtc0nj5"
+path="res://.godot/imported/Brazo_IDD_RAT_Voxel.glb-32e405375a349675fda7901cbb7d5ada.scn"
 
 [deps]
 
-source_file="res://Models/SNAP-27  - copia.glb"
-dest_files=["res://.godot/imported/SNAP-27  - copia.glb-4976321d8ea34ef7eba8611b14b7c9d5.scn"]
+source_file="res://Models/Objetos/Brazo_IDD_RAT_Voxel.glb"
+dest_files=["res://.godot/imported/Brazo_IDD_RAT_Voxel.glb-32e405375a349675fda7901cbb7d5ada.scn"]
 
 [params]
 

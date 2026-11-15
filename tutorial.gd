@@ -37,7 +37,7 @@ func _ready() -> void:
 	])
 	await caja_texto.textos_terminados
 	
-# 3. CREAMOS EL TWEEN EN PARALELO
+	# 3. CREAMOS EL TWEEN EN PARALELO
 	var tween_efectos = create_tween()
 	tween_efectos.set_parallel(true) # Todo lo que sigue ocurrirá a la vez
 	
@@ -64,6 +64,7 @@ func _ready() -> void:
 	
 	# 9. Desde el frame exacto en que aparece el punto final, empiezan a contar los 4 segundos
 	await get_tree().create_timer(4.0).timeout
+	await _crear_fade_out(1.5)
 	
 	# 10. ¡Viaje a la luna!
 	var nivel_cargado = ResourceLoader.load_threaded_get(RUTA_NIVEL_LUNA)
@@ -94,4 +95,20 @@ func _crear_fade_in(duracion: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(fondo_negro, "color:a", 0.0, duracion)
 	tween.tween_callback(capa_transicion.queue_free)
+	await tween.finished
+
+
+# ESTA ES LA FUNCIÓN QUE FALTABA
+func _crear_fade_out(duracion: float) -> void:
+	var capa_transicion = CanvasLayer.new()
+	capa_transicion.layer = 10 
+	add_child(capa_transicion)
+	
+	var fondo_negro = ColorRect.new()
+	fondo_negro.color = Color(0, 0, 0, 0) # Empieza en transparente
+	fondo_negro.set_anchors_preset(Control.PRESET_FULL_RECT)
+	capa_transicion.add_child(fondo_negro)
+	
+	var tween = create_tween()
+	tween.tween_property(fondo_negro, "color:a", 1.0, duracion) # Va hacia negro total
 	await tween.finished

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dquy3mh3mor50"
-path="res://.godot/imported/MODULO  - copia.glb-f94cfe135bd4ae77106671c27ef500b7.scn"
+uid="uid://b767xp7cjw4oc"
+path="res://.godot/imported/Panel_Solar_Delta_Voxel.glb-df45207e0bed9adcb20c8e6018b6be26.scn"
 
 [deps]
 
-source_file="res://Models/MODULO  - copia.glb"
-dest_files=["res://.godot/imported/MODULO  - copia.glb-f94cfe135bd4ae77106671c27ef500b7.scn"]
+source_file="res://Models/Objetos/Panel_Solar_Delta_Voxel.glb"
+dest_files=["res://.godot/imported/Panel_Solar_Delta_Voxel.glb-df45207e0bed9adcb20c8e6018b6be26.scn"]
 
 [params]
 

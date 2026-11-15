@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://djvb4hfujx7v5"
-path="res://.godot/imported/ESCOBA - copia.glb-b696df38cc96cf11349d276a0fe835e9.scn"
+uid="uid://c8y57npkr8y0"
+path="res://.godot/imported/Nucleo.glb-e88a9e341b36394e91cb6872a5c68136.scn"
 
 [deps]
 
-source_file="res://Models/ESCOBA - copia.glb"
-dest_files=["res://.godot/imported/ESCOBA - copia.glb-b696df38cc96cf11349d276a0fe835e9.scn"]
+source_file="res://Models/Objetos/Nucleo.glb"
+dest_files=["res://.godot/imported/Nucleo.glb-e88a9e341b36394e91cb6872a5c68136.scn"]
 
 [params]
 

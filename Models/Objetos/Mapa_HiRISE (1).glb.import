@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b2tk7r18we751"
-path="res://.godot/imported/ANTENA.glb-c675b6f379d8abf7a1db01d58c386871.scn"
+uid="uid://dkhu4dksbt5i0"
+path="res://.godot/imported/Mapa_HiRISE (1).glb-fae3117f31f397f0d7667326debec43b.scn"
 
 [deps]
 
-source_file="res://Models/ANTENA.glb"
-dest_files=["res://.godot/imported/ANTENA.glb-c675b6f379d8abf7a1db01d58c386871.scn"]
+source_file="res://Models/Objetos/Mapa_HiRISE (1).glb"
+dest_files=["res://.godot/imported/Mapa_HiRISE (1).glb-fae3117f31f397f0d7667326debec43b.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7frm7mxc8gbg"
-path="res://.godot/imported/CONSOLA - copia.glb-e8ba5602a8001e0697581d888b55eb2d.scn"
+uid="uid://duglflwu0ixjv"
+path="res://.godot/imported/Palanca_Metalica_Voxel.glb-7be918c5d95ea4c0b18bcddb50c4efff.scn"
 
 [deps]
 
-source_file="res://Models/CONSOLA - copia.glb"
-dest_files=["res://.godot/imported/CONSOLA - copia.glb-e8ba5602a8001e0697581d888b55eb2d.scn"]
+source_file="res://Models/Objetos/Palanca_Metalica_Voxel.glb"
+dest_files=["res://.godot/imported/Palanca_Metalica_Voxel.glb-7be918c5d95ea4c0b18bcddb50c4efff.scn"]
 
 [params]
 

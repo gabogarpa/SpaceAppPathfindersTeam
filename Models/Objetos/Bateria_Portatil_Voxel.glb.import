@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnr6jpccmtvp8"
-path="res://.godot/imported/CAMARA - copia.glb-906888e0fa47b2e13e0100df89a4a5de.scn"
+uid="uid://c5yr16hiibj1n"
+path="res://.godot/imported/Bateria_Portatil_Voxel.glb-8428cac28d96523b0457ac03c0fc6103.scn"
 
 [deps]
 
-source_file="res://Models/CAMARA - copia.glb"
-dest_files=["res://.godot/imported/CAMARA - copia.glb-906888e0fa47b2e13e0100df89a4a5de.scn"]
+source_file="res://Models/Objetos/Bateria_Portatil_Voxel.glb"
+dest_files=["res://.godot/imported/Bateria_Portatil_Voxel.glb-8428cac28d96523b0457ac03c0fc6103.scn"]
 
 [params]
 

@@ -34,11 +34,46 @@
 [ext_resource type="Shape3D" uid="uid://bq6w8q11medwi" path="res://Colisions/Moon/MoonCollisionShape15.tres" id="31_02y4s"]
 [ext_resource type="ArrayMesh" uid="uid://c2jvnqr28aryu" path="res://Models/LunaGrande/LunaGrande-15.obj" id="32_xlurr"]
 [ext_resource type="Shape3D" uid="uid://cxg0i8ttiww3o" path="res://Colisions/Moon/MoonCollisionShape16.tres" id="33_5tond"]
+[ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Escenas/NivelLuna.gdshader" id="35_jyt8u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fr1is"]
+size = Vector3(20.80249, 2.0645752, 0.14208984)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yslh7"]
+shader = ExtResource("35_jyt8u")
+shader_parameter/sky_color = Color(0.01, 0.01, 0.03, 1)
+shader_parameter/star_density = 600.0
+shader_parameter/star_threshold = 0.78
+
+[sub_resource type="Sky" id="Sky_jyt8u"]
+sky_material = SubResource("ShaderMaterial_yslh7")
+
+[sub_resource type="Environment" id="Environment_0emdt"]
+background_mode = 2
+sky = SubResource("Sky_jyt8u")
 
 [node name="NivelLuna" type="Node3D" unique_id=2031046114]
 
 [node name="Terreno" type="Node3D" parent="." unique_id=844660]
 script = ExtResource("1_2gw6p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno" unique_id=125259429]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/StaticBody3D" unique_id=1992870219]
+transform = Transform3D(5.21, 0, 0, 0, 5.21, 0, 0, 0, 5.21, 20.133919, 5.3064127, -32.48089)
+shape = SubResource("BoxShape3D_fr1is")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Terreno/StaticBody3D" unique_id=430367644]
+transform = Transform3D(5.21, 0, 0, 0, 5.21, 0, 0, 0, 5.21, 20.133919, 5.3064127, 70.24516)
+shape = SubResource("BoxShape3D_fr1is")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Terreno/StaticBody3D" unique_id=650365221]
+transform = Transform3D(-2.2773634e-07, 0, -5.21, 0, 5.21, 0, 5.21, 0, -2.2773634e-07, 74.516014, 5.3064127, 17.641396)
+shape = SubResource("BoxShape3D_fr1is")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Terreno/StaticBody3D" unique_id=1225371532]
+transform = Transform3D(-2.2773634e-07, 0, -5.21, 0, 5.21, 0, 5.21, 0, -2.2773634e-07, -28.193018, 5.3064127, 17.641396)
+shape = SubResource("BoxShape3D_fr1is")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Terreno" unique_id=1910021946]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
@@ -222,3 +257,6 @@ light_energy = 2.064
 
 [node name="MoonBot" parent="." unique_id=330879505 instance=ExtResource("2_e75f7")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6719, 2.0607252, 33.62386)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2131929543]
+environment = SubResource("Environment_0emdt")

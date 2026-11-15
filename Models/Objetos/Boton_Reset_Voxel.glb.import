@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjre0a5k8b051"
-path="res://.godot/imported/BATERIA - copia.glb-cb59c6c556c91f2aa7d0d8d585e51773.scn"
+uid="uid://d0emx4yuewauj"
+path="res://.godot/imported/Boton_Reset_Voxel.glb-ebe1f7b672a641f7d43e330995d5a50b.scn"
 
 [deps]
 
-source_file="res://Models/BATERIA - copia.glb"
-dest_files=["res://.godot/imported/BATERIA - copia.glb-cb59c6c556c91f2aa7d0d8d585e51773.scn"]
+source_file="res://Models/Objetos/Boton_Reset_Voxel.glb"
+dest_files=["res://.godot/imported/Boton_Reset_Voxel.glb-ebe1f7b672a641f7d43e330995d5a50b.scn"]
 
 [params]
 
