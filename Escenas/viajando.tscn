@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://h5fnmv72owna"]
 
 [ext_resource type="PackedScene" uid="uid://cr8xky5dqux5g" path="res://Escenas/MoonBot.tscn" id="1_bkivu"]
-[ext_resource type="Script" uid="uid://b7orh8fdqfvvf" path="res://Escenas/CamaraViaje.gd" id="2_4xmx7"]
+[ext_resource type="Script" uid="uid://b7orh8fdqfvvf" path="res://Scripts/CamaraViaje.gd" id="2_4xmx7"]
 [ext_resource type="PackedScene" uid="uid://ewnj2labst0" path="res://Models/Nave piso.glb" id="3_d7j25"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0emdt"]

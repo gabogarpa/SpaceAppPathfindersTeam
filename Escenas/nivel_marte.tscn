@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfkg6thx6ixis"]
 
-[ext_resource type="Script" uid="uid://ex88hy2rtnxb" path="res://Escenas/terrenoMars.gd" id="1_aigjn"]
+[ext_resource type="Script" uid="uid://ex88hy2rtnxb" path="res://Scripts/terrenoMars.gd" id="1_aigjn"]
 [ext_resource type="ArrayMesh" uid="uid://3o23y55n5a3f" path="res://Models/MarteColor/Marte-0.obj" id="2_aigjn"]
 [ext_resource type="ArrayMesh" uid="uid://b1lxijonij3va" path="res://Models/MarteColor/Marte-1.obj" id="3_07r8j"]
 [ext_resource type="Shape3D" uid="uid://bw1sg21rytrke" path="res://Colisions/Mars/new_concave_polygon_shape_3d.tres" id="3_ge06v"]
@@ -34,7 +34,7 @@
 [ext_resource type="Shape3D" uid="uid://b7aa35t6b6pit" path="res://Colisions/Mars/MarsCollisionShape14.tres" id="29_bwxi5"]
 [ext_resource type="Shape3D" uid="uid://ckaso6uaks6ag" path="res://Colisions/Mars/MarsCollisionShape15.tres" id="31_fxvwn"]
 [ext_resource type="Shape3D" uid="uid://b26g3ayna1qev" path="res://Colisions/Mars/MarsCollisionShape16.tres" id="33_syl8u"]
-[ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Escenas/NivelLuna.gdshader" id="35_pogxw"]
+[ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Shaders/NivelLuna.gdshader" id="35_pogxw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0emdt"]
 size = Vector3(106.54321, 10.716797, 1.9949951)

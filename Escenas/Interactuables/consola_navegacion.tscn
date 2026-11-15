@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cox4tt7bydogu"]
+
+[ext_resource type="PackedScene" uid="uid://d2rag1blbho71" path="res://Models/Objetos/Consola_Navegacion_Voxel.glb" id="1_3dbt1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.6570077
+
+[node name="ConsolaNavegacion" type="Area3D" unique_id=1530614001]
+
+[node name="Consola_Navegacion_Voxel2" parent="." unique_id=586504723 instance=ExtResource("1_3dbt1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=130853236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.80059123, 0)
+shape = SubResource("SphereShape3D_0emdt")

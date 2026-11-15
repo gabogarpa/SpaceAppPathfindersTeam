@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpe14r40vserl"]
 
-[ext_resource type="Script" uid="uid://csp2oga1auu3r" path="res://Escenas/terrenoMoon.gd" id="1_2gw6p"]
+[ext_resource type="Script" uid="uid://csp2oga1auu3r" path="res://Scripts/terrenoMoon.gd" id="1_2gw6p"]
+[ext_resource type="Script" uid="uid://wsp6ofb6iijc" path="res://Scripts/nivel_luna.gd" id="1_i11st"]
 [ext_resource type="PackedScene" uid="uid://cr8xky5dqux5g" path="res://Escenas/MoonBot.tscn" id="2_e75f7"]
 [ext_resource type="ArrayMesh" uid="uid://dcsftpxlqklh7" path="res://Models/LunaGrande/LunaGrande-0.obj" id="2_jyt8u"]
 [ext_resource type="Shape3D" uid="uid://wylxbfybh8tl" path="res://Colisions/Moon/MoonCollisionShape.res" id="3_jg82q"]
@@ -34,7 +35,9 @@
 [ext_resource type="Shape3D" uid="uid://bq6w8q11medwi" path="res://Colisions/Moon/MoonCollisionShape15.tres" id="31_02y4s"]
 [ext_resource type="ArrayMesh" uid="uid://c2jvnqr28aryu" path="res://Models/LunaGrande/LunaGrande-15.obj" id="32_xlurr"]
 [ext_resource type="Shape3D" uid="uid://cxg0i8ttiww3o" path="res://Colisions/Moon/MoonCollisionShape16.tres" id="33_5tond"]
-[ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Escenas/NivelLuna.gdshader" id="35_jyt8u"]
+[ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Shaders/NivelLuna.gdshader" id="35_jyt8u"]
+[ext_resource type="PackedScene" uid="uid://c8e5526d660ch" path="res://Escenas/caja_texto.tscn" id="36_jg82q"]
+[ext_resource type="PackedScene" uid="uid://c0xm6mtyb0bp6" path="res://Escenas/Interactuables/camara_westinghouse.tscn" id="38_nxmlh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fr1is"]
 size = Vector3(20.80249, 2.0645752, 0.14208984)
@@ -53,6 +56,7 @@ background_mode = 2
 sky = SubResource("Sky_jyt8u")
 
 [node name="NivelLuna" type="Node3D" unique_id=2031046114]
+script = ExtResource("1_i11st")
 
 [node name="Terreno" type="Node3D" parent="." unique_id=844660]
 script = ExtResource("1_2gw6p")
@@ -98,7 +102,7 @@ visible = false
 shape = ExtResource("5_nxmlh")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Terreno" unique_id=520694908]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.143, -0.098, -6.614)
 cast_shadow = 0
 mesh = ExtResource("6_vdeif")
 
@@ -260,3 +264,8 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2131929543]
 environment = SubResource("Environment_0emdt")
+
+[node name="CajaTexto" parent="." unique_id=308297068 instance=ExtResource("36_jg82q")]
+
+[node name="CamaraWestinghouse" parent="." unique_id=1031537781 instance=ExtResource("38_nxmlh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4618, 2, 23.394972)

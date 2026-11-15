@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0xm6mtyb0bp6"]
+
+[ext_resource type="PackedScene" uid="uid://dbyp551un2dc" path="res://Models/Objetos/Camara_Westinghouse_Voxel.glb" id="1_tyedf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.671934
+
+[node name="CamaraWestinghouse" type="Area3D" unique_id=1031537781 groups=["objeto_clave"]]
+
+[node name="Camara_Westinghouse_Voxel2" parent="." unique_id=1493423484 instance=ExtResource("1_tyedf")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1784714946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2920508, 0)
+shape = SubResource("SphereShape3D_0emdt")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b0k6kfxldrv4w"]
+
+[ext_resource type="PackedScene" uid="uid://bpekcxq80082k" path="res://Models/Objetos/Rueda_LRV_Voxel.glb" id="1_df4ey"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.8971171
+
+[node name="RuedaMalla" type="Area3D" unique_id=566639477]
+
+[node name="Rueda_LRV_Voxel2" parent="." unique_id=1213565124 instance=ExtResource("1_df4ey")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1968393402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9840088, 0)
+shape = SubResource("SphereShape3D_0emdt")
