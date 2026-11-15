@@ -1,41 +1,41 @@
 [gd_scene format=3 uid="uid://dpe14r40vserl"]
 
-[ext_resource type="Script" uid="uid://ex88hy2rtnxb" path="res://Escenas/terrenoMars.gd" id="1_2gw6p"]
+[ext_resource type="Script" uid="uid://csp2oga1auu3r" path="res://Escenas/terrenoMoon.gd" id="1_2gw6p"]
 [ext_resource type="PackedScene" uid="uid://cr8xky5dqux5g" path="res://Escenas/MoonBot.tscn" id="2_e75f7"]
-[ext_resource type="ArrayMesh" uid="uid://3o23y55n5a3f" path="res://Models/MarteColor/Marte-0.obj" id="2_jyt8u"]
-[ext_resource type="Shape3D" uid="uid://bw1sg21rytrke" path="res://Colisions/Mars/new_concave_polygon_shape_3d.tres" id="3_jg82q"]
-[ext_resource type="ArrayMesh" uid="uid://b1lxijonij3va" path="res://Models/MarteColor/Marte-1.obj" id="4_i11st"]
-[ext_resource type="Shape3D" uid="uid://cmd5xk5mcstg2" path="res://Colisions/Mars/MarsCollisionShape2.tres" id="5_nxmlh"]
-[ext_resource type="ArrayMesh" uid="uid://pq21ucxkr5cc" path="res://Models/MarteColor/Marte-2.obj" id="6_vdeif"]
-[ext_resource type="Shape3D" uid="uid://4ofuovq1w1qk" path="res://Colisions/Mars/MarsCollisionShape3.tres" id="7_jor8e"]
-[ext_resource type="ArrayMesh" uid="uid://ddo6csn40wqqo" path="res://Models/MarteColor/Marte-3.obj" id="8_r320u"]
-[ext_resource type="Shape3D" uid="uid://be2hafah073jj" path="res://Colisions/Mars/MarsCollisionShape4.tres" id="9_2k2yi"]
-[ext_resource type="ArrayMesh" uid="uid://ctlbwktl0yoyt" path="res://Models/MarteColor/Marte-4.obj" id="10_c11ei"]
-[ext_resource type="Shape3D" uid="uid://cwqk8sj6qjnbp" path="res://Colisions/Mars/MarsCollisionShape5.tres" id="11_3jehr"]
-[ext_resource type="ArrayMesh" uid="uid://cyeagrf32bx8i" path="res://Models/MarteColor/Marte-5.obj" id="12_bqffm"]
-[ext_resource type="Shape3D" uid="uid://b4gpdx6c0peob" path="res://Colisions/Mars/MarsCollisionShape6.tres" id="13_ysurd"]
-[ext_resource type="ArrayMesh" uid="uid://chmcvl4hraxd2" path="res://Models/MarteColor/Marte-6.obj" id="14_vk7y2"]
-[ext_resource type="Shape3D" uid="uid://coc3o4qjdovrf" path="res://Colisions/Mars/MarsCollisionShape7.tres" id="15_gkfjy"]
-[ext_resource type="ArrayMesh" uid="uid://j6hjymvkj02c" path="res://Models/MarteColor/Marte-7.obj" id="16_kvs1u"]
-[ext_resource type="Shape3D" uid="uid://bj13ujxsxsug4" path="res://Colisions/Mars/MarsCollisionShape8.tres" id="17_oxvw6"]
-[ext_resource type="ArrayMesh" uid="uid://7lf73r6e14sb" path="res://Models/MarteColor/Marte-8.obj" id="18_gmuq5"]
-[ext_resource type="Shape3D" uid="uid://bo63o8auckmhj" path="res://Colisions/Mars/MarsCollisionShape9.tres" id="19_e21pi"]
-[ext_resource type="ArrayMesh" uid="uid://bfnvb5od1m3qh" path="res://Models/MarteColor/Marte-9.obj" id="20_v3y5d"]
-[ext_resource type="Shape3D" uid="uid://dpxo7bf4opf05" path="res://Colisions/Mars/MarsCollisionShape10.tres" id="21_xio4p"]
-[ext_resource type="ArrayMesh" uid="uid://033pus0dsyvl" path="res://Models/MarteColor/Marte-10.obj" id="22_ev5ah"]
-[ext_resource type="Shape3D" uid="uid://byqgy2x50m4tr" path="res://Colisions/Mars/MarsCollisionShape11.tres" id="23_52ayq"]
-[ext_resource type="ArrayMesh" uid="uid://bwbox7hvwgpic" path="res://Models/MarteColor/Marte-11.obj" id="24_f5r1a"]
-[ext_resource type="Shape3D" uid="uid://dxfjo8maaul1l" path="res://Colisions/Mars/MarsCollisionShape12.tres" id="25_wlt1g"]
-[ext_resource type="ArrayMesh" uid="uid://bpvjjvvdykmp" path="res://Models/MarteColor/Marte-12.obj" id="26_10vxy"]
-[ext_resource type="Shape3D" uid="uid://dfiw70g31kf4h" path="res://Colisions/Mars/MarsCollisionShape13.tres" id="27_dfep1"]
-[ext_resource type="ArrayMesh" uid="uid://csk3elyx5ruxv" path="res://Models/MarteColor/Marte-13.obj" id="28_s5l3b"]
-[ext_resource type="Shape3D" uid="uid://b7aa35t6b6pit" path="res://Colisions/Mars/MarsCollisionShape14.tres" id="29_10c6u"]
-[ext_resource type="ArrayMesh" uid="uid://dhis3egmlmip5" path="res://Models/MarteColor/Marte-14.obj" id="30_02y4s"]
-[ext_resource type="Shape3D" uid="uid://ckaso6uaks6ag" path="res://Colisions/Mars/MarsCollisionShape15.tres" id="31_xlurr"]
-[ext_resource type="ArrayMesh" uid="uid://diserx41st31n" path="res://Models/MarteColor/Marte-15.obj" id="32_5tond"]
-[ext_resource type="Shape3D" uid="uid://b26g3ayna1qev" path="res://Colisions/Mars/MarsCollisionShape16.tres" id="33_mnfxi"]
+[ext_resource type="ArrayMesh" uid="uid://dcsftpxlqklh7" path="res://Models/LunaGrande/LunaGrande-0.obj" id="2_jyt8u"]
+[ext_resource type="Shape3D" uid="uid://wylxbfybh8tl" path="res://Colisions/Moon/MoonCollisionShape.res" id="3_jg82q"]
+[ext_resource type="ArrayMesh" uid="uid://cvqakgds638kb" path="res://Models/LunaGrande/LunaGrande-1.obj" id="4_i11st"]
+[ext_resource type="Shape3D" uid="uid://drtcmes6nfwhu" path="res://Colisions/Moon/MoonCollisionShape2.res" id="5_nxmlh"]
+[ext_resource type="ArrayMesh" uid="uid://c0rck6c6e7iaq" path="res://Models/LunaGrande/LunaGrande-2.obj" id="6_vdeif"]
+[ext_resource type="Shape3D" uid="uid://dugendvqjf6fk" path="res://Colisions/Moon/MoonCollisionShape3.res" id="7_jor8e"]
+[ext_resource type="ArrayMesh" uid="uid://dldkx224q5fv5" path="res://Models/LunaGrande/LunaGrande-3.obj" id="8_r320u"]
+[ext_resource type="Shape3D" uid="uid://56xqqroi8gv" path="res://Colisions/Moon/MoonCollisionShape4.res" id="9_2k2yi"]
+[ext_resource type="ArrayMesh" uid="uid://dqkvm37eu75n5" path="res://Models/LunaGrande/LunaGrande-4.obj" id="10_c11ei"]
+[ext_resource type="Shape3D" uid="uid://b4vslg5ts1ccd" path="res://Colisions/Moon/MoonCollisionShape5.res" id="11_3jehr"]
+[ext_resource type="ArrayMesh" uid="uid://cbb6ma8n3sqg" path="res://Models/LunaGrande/LunaGrande-5.obj" id="12_bqffm"]
+[ext_resource type="Shape3D" uid="uid://wnqsmwtyi2ee" path="res://Colisions/Moon/MoonCollisionShape6.res" id="13_ysurd"]
+[ext_resource type="ArrayMesh" uid="uid://cl8iv0snp3ihy" path="res://Models/LunaGrande/LunaGrande-6.obj" id="14_vk7y2"]
+[ext_resource type="Shape3D" uid="uid://bgeyou0geo3sr" path="res://Colisions/Moon/MoonCollisionShape7.res" id="15_gkfjy"]
+[ext_resource type="ArrayMesh" uid="uid://ljl2166v38u0" path="res://Models/LunaGrande/LunaGrande-7.obj" id="16_kvs1u"]
+[ext_resource type="Shape3D" uid="uid://bes2dwh01eyio" path="res://Colisions/Moon/MoonCollisionShape8.tres" id="17_2gw6p"]
+[ext_resource type="ArrayMesh" uid="uid://cc6sn83ft3p2x" path="res://Models/LunaGrande/LunaGrande-8.obj" id="18_oxvw6"]
+[ext_resource type="Shape3D" uid="uid://ds5y1bj4vapoc" path="res://Colisions/Moon/MoonCollisionShape9.tres" id="19_gmuq5"]
+[ext_resource type="ArrayMesh" uid="uid://bodx7ctl2ef1e" path="res://Models/LunaGrande/LunaGrande-9.obj" id="20_e21pi"]
+[ext_resource type="Shape3D" uid="uid://cf6mqctu80t70" path="res://Colisions/Moon/MoonCollisionShape10.tres" id="21_v3y5d"]
+[ext_resource type="ArrayMesh" uid="uid://bbgcv71j02u0x" path="res://Models/LunaGrande/LunaGrande-10.obj" id="22_xio4p"]
+[ext_resource type="Shape3D" uid="uid://x71yqcw31lc2" path="res://Colisions/Moon/MoonCollisionShape11.tres" id="23_ev5ah"]
+[ext_resource type="ArrayMesh" uid="uid://b4d83e3fyapsj" path="res://Models/LunaGrande/LunaGrande-11.obj" id="24_52ayq"]
+[ext_resource type="Shape3D" uid="uid://cugg2gy4t8hq2" path="res://Colisions/Moon/MoonCollisionShape12.tres" id="25_f5r1a"]
+[ext_resource type="ArrayMesh" uid="uid://c4gd5namyc3y" path="res://Models/LunaGrande/LunaGrande-12.obj" id="26_wlt1g"]
+[ext_resource type="Shape3D" uid="uid://5cdf6e6c4qxs" path="res://Colisions/Moon/MoonCollisionShape13.tres" id="27_10vxy"]
+[ext_resource type="ArrayMesh" uid="uid://c382oc4uljtk5" path="res://Models/LunaGrande/LunaGrande-13.obj" id="28_dfep1"]
+[ext_resource type="Shape3D" uid="uid://rm6q2dkswn84" path="res://Colisions/Moon/MoonCollisionShape14.tres" id="29_s5l3b"]
+[ext_resource type="ArrayMesh" uid="uid://b5aefkrdhboen" path="res://Models/LunaGrande/LunaGrande-14.obj" id="30_10c6u"]
+[ext_resource type="Shape3D" uid="uid://bq6w8q11medwi" path="res://Colisions/Moon/MoonCollisionShape15.tres" id="31_02y4s"]
+[ext_resource type="ArrayMesh" uid="uid://c2jvnqr28aryu" path="res://Models/LunaGrande/LunaGrande-15.obj" id="32_xlurr"]
+[ext_resource type="Shape3D" uid="uid://cxg0i8ttiww3o" path="res://Colisions/Moon/MoonCollisionShape16.tres" id="33_5tond"]
 
-[node name="NivelMarte" type="Node3D" unique_id=2031046114]
+[node name="NivelLuna" type="Node3D" unique_id=2031046114]
 
 [node name="Terreno" type="Node3D" parent="." unique_id=844660]
 script = ExtResource("1_2gw6p")
@@ -126,99 +126,99 @@ mesh = ExtResource("16_kvs1u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D8/StaticBody3D" unique_id=371037567]
 visible = false
-shape = ExtResource("17_oxvw6")
+shape = ExtResource("17_2gw6p")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="Terreno" unique_id=162310446]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("18_gmuq5")
+mesh = ExtResource("18_oxvw6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D9" unique_id=1896226189]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D9/StaticBody3D" unique_id=882230857]
 visible = false
-shape = ExtResource("19_e21pi")
+shape = ExtResource("19_gmuq5")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Terreno" unique_id=395044388]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("20_v3y5d")
+mesh = ExtResource("20_e21pi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D10" unique_id=428024768]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D10/StaticBody3D" unique_id=595469663]
 visible = false
-shape = ExtResource("21_xio4p")
+shape = ExtResource("21_v3y5d")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="Terreno" unique_id=980137724]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("22_ev5ah")
+mesh = ExtResource("22_xio4p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D11" unique_id=1659796283]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D11/StaticBody3D" unique_id=1927208412]
 visible = false
-shape = ExtResource("23_52ayq")
+shape = ExtResource("23_ev5ah")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="Terreno" unique_id=1152883077]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("24_f5r1a")
+mesh = ExtResource("24_52ayq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D12" unique_id=1940412303]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D12/StaticBody3D" unique_id=1728565148]
 visible = false
-shape = ExtResource("25_wlt1g")
+shape = ExtResource("25_f5r1a")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="Terreno" unique_id=1363868654]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("26_10vxy")
+mesh = ExtResource("26_wlt1g")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D13" unique_id=401190494]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D13/StaticBody3D" unique_id=1716805190]
 visible = false
-shape = ExtResource("27_dfep1")
+shape = ExtResource("27_10vxy")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="Terreno" unique_id=1656988432]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("28_s5l3b")
+mesh = ExtResource("28_dfep1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D14" unique_id=9092779]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D14/StaticBody3D" unique_id=1969786524]
 visible = false
-shape = ExtResource("29_10c6u")
+shape = ExtResource("29_s5l3b")
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="Terreno" unique_id=515054860]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("30_02y4s")
+mesh = ExtResource("30_10c6u")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D15" unique_id=954358546]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D15/StaticBody3D" unique_id=1146593342]
 visible = false
-shape = ExtResource("31_xlurr")
+shape = ExtResource("31_02y4s")
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="Terreno" unique_id=2034506912]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
 cast_shadow = 0
-mesh = ExtResource("32_5tond")
+mesh = ExtResource("32_xlurr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D16" unique_id=2061918264]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D16/StaticBody3D" unique_id=943814728]
 visible = false
-shape = ExtResource("33_mnfxi")
+shape = ExtResource("33_5tond")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1212595775]
 transform = Transform3D(-2.4510593e-08, 0.9974324, -0.07161543, 3.6192763e-08, 0.07161543, 0.9974324, 1, 2.1855701e-08, -3.7855177e-08, 22.401745, 32.143196, -3.4106598)
 light_energy = 2.064
 
 [node name="MoonBot" parent="." unique_id=330879505 instance=ExtResource("2_e75f7")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6719, 6.801058, 33.62386)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6719, 2.0607252, 33.62386)

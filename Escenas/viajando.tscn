@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://h5fnmv72owna"]
+
+[ext_resource type="PackedScene" uid="uid://cr8xky5dqux5g" path="res://Escenas/MoonBot.tscn" id="1_bkivu"]
+[ext_resource type="Script" uid="uid://b7orh8fdqfvvf" path="res://Escenas/CamaraViaje.gd" id="2_4xmx7"]
+[ext_resource type="PackedScene" uid="uid://ewnj2labst0" path="res://Models/Nave piso.glb" id="3_d7j25"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0emdt"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4xmx7"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fr1is"]
+albedo_color = Color(0.20999998, 0.4601668, 1, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.14901961, 1, 1, 1)
+emission_energy_multiplier = 4.27
+
+[sub_resource type="BoxMesh" id="BoxMesh_0emdt"]
+material = SubResource("StandardMaterial3D_fr1is")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d7j25"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pju4u"]
+albedo_color = Color(0.20999998, 0.4601668, 1, 1)
+metallic = 1.0
+emission = Color(0.14901961, 1, 1, 1)
+emission_energy_multiplier = 4.27
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgj6o"]
+material = SubResource("StandardMaterial3D_pju4u")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gciy2"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f5k7o"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0emdt"]
+
+[node name="Viajando" type="Node3D" unique_id=176364061]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1723042446]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_0emdt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1518686920]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1220024411]
+shape = SubResource("ConcavePolygonShape3D_4xmx7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=89749927]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 10.17798, 6.749599, 0, 0)
+mesh = SubResource("BoxMesh_0emdt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2" unique_id=1817000539]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D" unique_id=774673619]
+shape = SubResource("ConcavePolygonShape3D_d7j25")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=2101923940]
+transform = Transform3D(-1.9670125e-07, 0, 10.17798, 0, 4.5, 0, -4.5, 0, -4.4489366e-07, 0.12966254, 0, -6.7437444)
+mesh = SubResource("BoxMesh_kgj6o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4" unique_id=233271418]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D" unique_id=1271028020]
+shape = SubResource("ConcavePolygonShape3D_gciy2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=315851542]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 10.17798, -6.749663, 0, 0)
+mesh = SubResource("BoxMesh_0emdt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3" unique_id=2073201337]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D" unique_id=810827217]
+shape = SubResource("ConcavePolygonShape3D_f5k7o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=706185385]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.262167, 3.9661487e-08)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=303991711]
+transform = Transform3D(9.703591, 0, 0, 0, -1.8460561e-07, -1.410334, 0, 4.2232842, -6.1647654e-08, 0, -5.231131, -3.2621672)
+shape = SubResource("BoxShape3D_0emdt")
+
+[node name="MoonBot" parent="." unique_id=330879505 instance=ExtResource("1_bkivu")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=981532711]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 5.6690955, 1.9607549)
+script = ExtResource("2_4xmx7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=450309233]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.262167, 3.9661487e-08)
+light_color = Color(0.8156863, 1, 1, 1)
+light_energy = 14.78
+spot_range = 17.425
+spot_attenuation = 3.08
+spot_angle = 66.09375
+spot_angle_attenuation = 0.09807312
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=2090473476]
+
+[node name="Entorno_Interior_Modular_80x80" parent="." unique_id=1924849885 instance=ExtResource("3_d7j25")]

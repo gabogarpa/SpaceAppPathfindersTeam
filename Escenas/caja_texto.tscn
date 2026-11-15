@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c8e5526d660ch"]
+
+[ext_resource type="Script" uid="uid://cfyfi8dyc82jl" path="res://caja_texto.gd" id="1_025rt"]
+[ext_resource type="FontFile" uid="uid://be4orxrsbtfom" path="res://Fonts/UFO50Tall.ttf" id="2_hxvhs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0emdt"]
+bg_color = Color(0, 0, 0, 0.5882353)
+
+[node name="CajaTexto" type="CanvasLayer" unique_id=308297068]
+script = ExtResource("1_025rt")
+
+[node name="Panel" type="Panel" parent="." unique_id=1261438448]
+offset_top = 600.0
+offset_right = 800.0
+offset_bottom = 800.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0emdt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=603067240]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.000013
+offset_right = 768.0
+offset_bottom = 192.00002
+theme_override_fonts/normal_font = ExtResource("2_hxvhs")
+theme_override_font_sizes/normal_font_size = 32
