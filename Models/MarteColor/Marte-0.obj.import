@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3o23y55n5a3f"
+path="res://.godot/imported/Marte-0.obj-c1aa52006d6c4398b7747d5184bd2b88.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Marte-0.obj-c1aa52006d6c4398b7747d5184bd2b88.mesh"]
+
+source_file="res://Models/MarteColor/Marte-0.obj"
+dest_files=["res://.godot/imported/Marte-0.obj-c1aa52006d6c4398b7747d5184bd2b88.mesh", "res://.godot/imported/Marte-0.obj-c1aa52006d6c4398b7747d5184bd2b88.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

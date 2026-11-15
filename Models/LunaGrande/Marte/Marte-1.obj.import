@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djlompjwhi63m"
+path="res://.godot/imported/Marte-1.obj-0fa8d79c0ecf6d8aa8b4f736331eb698.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Marte-1.obj-0fa8d79c0ecf6d8aa8b4f736331eb698.mesh"]
+
+source_file="res://Models/LunaGrande/Marte/Marte-1.obj"
+dest_files=["res://.godot/imported/Marte-1.obj-0fa8d79c0ecf6d8aa8b4f736331eb698.mesh", "res://.godot/imported/Marte-1.obj-0fa8d79c0ecf6d8aa8b4f736331eb698.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

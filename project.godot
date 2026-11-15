@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="SpaceAppChallenge"
-run/main_scene="uid://dpe14r40vserl"
+run/main_scene="uid://bfkg6thx6ixis"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PopupManager="*uid://c1ocovt8ii5dl"
 
 [display]
 
@@ -21,6 +25,10 @@ window/size/viewport_width=800
 window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg")
 
 [physics]
 

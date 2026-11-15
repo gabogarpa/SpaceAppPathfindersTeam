@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://bfkg6thx6ixis"]
+
+[ext_resource type="Script" uid="uid://ex88hy2rtnxb" path="res://Escenas/terrenoMars.gd" id="1_aigjn"]
+[ext_resource type="ArrayMesh" uid="uid://3o23y55n5a3f" path="res://Models/MarteColor/Marte-0.obj" id="2_aigjn"]
+[ext_resource type="ArrayMesh" uid="uid://b1lxijonij3va" path="res://Models/MarteColor/Marte-1.obj" id="3_07r8j"]
+[ext_resource type="Shape3D" uid="uid://bw1sg21rytrke" path="res://Colisions/Mars/new_concave_polygon_shape_3d.tres" id="3_ge06v"]
+[ext_resource type="PackedScene" uid="uid://cr8xky5dqux5g" path="res://Escenas/MoonBot.tscn" id="3_y4r3m"]
+[ext_resource type="ArrayMesh" uid="uid://pq21ucxkr5cc" path="res://Models/MarteColor/Marte-2.obj" id="4_j3rw1"]
+[ext_resource type="ArrayMesh" uid="uid://ddo6csn40wqqo" path="res://Models/MarteColor/Marte-3.obj" id="5_ipkgw"]
+[ext_resource type="Shape3D" uid="uid://cmd5xk5mcstg2" path="res://Colisions/Mars/MarsCollisionShape2.tres" id="5_pogxw"]
+[ext_resource type="ArrayMesh" uid="uid://ctlbwktl0yoyt" path="res://Models/MarteColor/Marte-4.obj" id="6_tcp14"]
+[ext_resource type="Shape3D" uid="uid://4ofuovq1w1qk" path="res://Colisions/Mars/MarsCollisionShape3.tres" id="7_gca50"]
+[ext_resource type="ArrayMesh" uid="uid://cyeagrf32bx8i" path="res://Models/MarteColor/Marte-5.obj" id="7_ioqnb"]
+[ext_resource type="ArrayMesh" uid="uid://chmcvl4hraxd2" path="res://Models/MarteColor/Marte-6.obj" id="8_t6v6i"]
+[ext_resource type="ArrayMesh" uid="uid://j6hjymvkj02c" path="res://Models/MarteColor/Marte-7.obj" id="9_5ktkg"]
+[ext_resource type="Shape3D" uid="uid://be2hafah073jj" path="res://Colisions/Mars/MarsCollisionShape4.tres" id="9_w1toi"]
+[ext_resource type="ArrayMesh" uid="uid://7lf73r6e14sb" path="res://Models/MarteColor/Marte-8.obj" id="10_d50gy"]
+[ext_resource type="Shape3D" uid="uid://cwqk8sj6qjnbp" path="res://Colisions/Mars/MarsCollisionShape5.tres" id="11_1ikxt"]
+[ext_resource type="ArrayMesh" uid="uid://bfnvb5od1m3qh" path="res://Models/MarteColor/Marte-9.obj" id="11_n5bmc"]
+[ext_resource type="ArrayMesh" uid="uid://033pus0dsyvl" path="res://Models/MarteColor/Marte-10.obj" id="12_a14vv"]
+[ext_resource type="ArrayMesh" uid="uid://bwbox7hvwgpic" path="res://Models/MarteColor/Marte-11.obj" id="13_n5puy"]
+[ext_resource type="Shape3D" uid="uid://b4gpdx6c0peob" path="res://Colisions/Mars/MarsCollisionShape6.tres" id="13_uapwk"]
+[ext_resource type="ArrayMesh" uid="uid://bpvjjvvdykmp" path="res://Models/MarteColor/Marte-12.obj" id="14_wgfps"]
+[ext_resource type="Shape3D" uid="uid://coc3o4qjdovrf" path="res://Colisions/Mars/MarsCollisionShape7.tres" id="15_3mu4p"]
+[ext_resource type="ArrayMesh" uid="uid://csk3elyx5ruxv" path="res://Models/MarteColor/Marte-13.obj" id="15_omhd6"]
+[ext_resource type="ArrayMesh" uid="uid://dhis3egmlmip5" path="res://Models/MarteColor/Marte-14.obj" id="16_m2n2x"]
+[ext_resource type="Shape3D" uid="uid://bj13ujxsxsug4" path="res://Colisions/Mars/MarsCollisionShape8.tres" id="17_nbi4q"]
+[ext_resource type="ArrayMesh" uid="uid://diserx41st31n" path="res://Models/MarteColor/Marte-15.obj" id="17_yprvo"]
+[ext_resource type="Shape3D" uid="uid://bo63o8auckmhj" path="res://Colisions/Mars/MarsCollisionShape9.tres" id="19_nq183"]
+[ext_resource type="Shape3D" uid="uid://dpxo7bf4opf05" path="res://Colisions/Mars/MarsCollisionShape10.tres" id="21_1icso"]
+[ext_resource type="Shape3D" uid="uid://byqgy2x50m4tr" path="res://Colisions/Mars/MarsCollisionShape11.tres" id="23_xaidg"]
+[ext_resource type="Shape3D" uid="uid://dxfjo8maaul1l" path="res://Colisions/Mars/MarsCollisionShape12.tres" id="25_k0fhb"]
+[ext_resource type="Shape3D" uid="uid://dfiw70g31kf4h" path="res://Colisions/Mars/MarsCollisionShape13.tres" id="27_h1u58"]
+[ext_resource type="Shape3D" uid="uid://b7aa35t6b6pit" path="res://Colisions/Mars/MarsCollisionShape14.tres" id="29_bwxi5"]
+[ext_resource type="Shape3D" uid="uid://ckaso6uaks6ag" path="res://Colisions/Mars/MarsCollisionShape15.tres" id="31_fxvwn"]
+[ext_resource type="Shape3D" uid="uid://b26g3ayna1qev" path="res://Colisions/Mars/MarsCollisionShape16.tres" id="33_syl8u"]
+
+[node name="NivelMarte" type="Node3D" unique_id=2031046114]
+
+[node name="Terreno" type="Node3D" parent="." unique_id=844660]
+script = ExtResource("1_aigjn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terreno" unique_id=1910021946]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("2_aigjn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D" unique_id=1107948718]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D/StaticBody3D" unique_id=1834227655]
+visible = false
+shape = ExtResource("3_ge06v")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Terreno" unique_id=415520921]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("3_07r8j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D2" unique_id=1525744145]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D2/StaticBody3D" unique_id=184672199]
+visible = false
+shape = ExtResource("5_pogxw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Terreno" unique_id=520694908]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("4_j3rw1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D3" unique_id=451820488]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D3/StaticBody3D" unique_id=1787056086]
+visible = false
+shape = ExtResource("7_gca50")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Terreno" unique_id=370543806]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("5_ipkgw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D4" unique_id=1640452654]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D4/StaticBody3D" unique_id=497141051]
+visible = false
+shape = ExtResource("9_w1toi")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Terreno" unique_id=1224622724]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("6_tcp14")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D5" unique_id=1142202223]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D5/StaticBody3D" unique_id=1778735484]
+visible = false
+shape = ExtResource("11_1ikxt")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Terreno" unique_id=239652889]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("7_ioqnb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D6" unique_id=1468622002]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D6/StaticBody3D" unique_id=363494915]
+visible = false
+shape = ExtResource("13_uapwk")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Terreno" unique_id=685163194]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("8_t6v6i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D7" unique_id=638393582]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D7/StaticBody3D" unique_id=1879202112]
+visible = false
+shape = ExtResource("15_3mu4p")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Terreno" unique_id=624009409]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("9_5ktkg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D8" unique_id=719656200]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D8/StaticBody3D" unique_id=371037567]
+visible = false
+shape = ExtResource("17_nbi4q")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Terreno" unique_id=162310446]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("10_d50gy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D9" unique_id=1896226189]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D9/StaticBody3D" unique_id=882230857]
+visible = false
+shape = ExtResource("19_nq183")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Terreno" unique_id=395044388]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("11_n5bmc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D10" unique_id=428024768]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D10/StaticBody3D" unique_id=595469663]
+visible = false
+shape = ExtResource("21_1icso")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Terreno" unique_id=980137724]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("12_a14vv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D11" unique_id=1659796283]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D11/StaticBody3D" unique_id=1927208412]
+visible = false
+shape = ExtResource("23_xaidg")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Terreno" unique_id=1152883077]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("13_n5puy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D12" unique_id=1940412303]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D12/StaticBody3D" unique_id=1728565148]
+visible = false
+shape = ExtResource("25_k0fhb")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Terreno" unique_id=1363868654]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("14_wgfps")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D13" unique_id=401190494]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D13/StaticBody3D" unique_id=1716805190]
+visible = false
+shape = ExtResource("27_h1u58")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Terreno" unique_id=1656988432]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("15_omhd6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D14" unique_id=9092779]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D14/StaticBody3D" unique_id=1969786524]
+visible = false
+shape = ExtResource("29_bwxi5")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Terreno" unique_id=515054860]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("16_m2n2x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D15" unique_id=954358546]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D15/StaticBody3D" unique_id=1146593342]
+visible = false
+shape = ExtResource("31_fxvwn")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Terreno" unique_id=2034506912]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.142879, 0, -6.613722)
+cast_shadow = 0
+mesh = ExtResource("17_yprvo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/MeshInstance3D16" unique_id=2061918264]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/MeshInstance3D16/StaticBody3D" unique_id=943814728]
+visible = false
+shape = ExtResource("33_syl8u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1212595775]
+transform = Transform3D(-2.4510593e-08, 0.9974324, -0.07161543, 3.6192763e-08, 0.07161543, 0.9974324, 1, 2.1855701e-08, -3.7855177e-08, 22.401745, 32.143196, -3.4106598)
+light_energy = 2.064
+
+[node name="MoonBot" parent="." unique_id=330879505 instance=ExtResource("3_y4r3m")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6719, 6.801058, 33.62386)

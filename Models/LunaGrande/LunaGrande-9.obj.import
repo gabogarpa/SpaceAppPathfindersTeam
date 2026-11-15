@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bodx7ctl2ef1e"
+path="res://.godot/imported/LunaGrande-9.obj-60183e6166419600a1c2196236fa5d6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LunaGrande-9.obj-60183e6166419600a1c2196236fa5d6c.mesh"]
+
+source_file="res://Models/LunaGrande/LunaGrande-9.obj"
+dest_files=["res://.godot/imported/LunaGrande-9.obj-60183e6166419600a1c2196236fa5d6c.mesh", "res://.godot/imported/LunaGrande-9.obj-60183e6166419600a1c2196236fa5d6c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

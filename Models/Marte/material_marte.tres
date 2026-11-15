@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://uui6it8lpk3c"]
+
+[ext_resource type="Texture2D" uid="uid://b2kdqbb1pudcu" path="res://Models/Marte/Marte-0.png" id="1_0ee0d"]
+
+[resource]
+specular_mode = 2
+albedo_texture = ExtResource("1_0ee0d")
+metallic_specular = 0.0
+texture_filter = 0
