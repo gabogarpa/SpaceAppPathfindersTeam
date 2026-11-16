@@ -6,6 +6,10 @@ extends Node
 signal item_agregado(id: String)
 signal herramienta_equipada(id: String)
 signal inventario_toggled(abierto: bool)
+## Se emite cuando se completan todos los objetivos de la mision actual.
+signal mision_completada
+## Se emite al cerrar la ultima ventana de informacion de la cola.
+signal ventanas_cerradas
 
 const ACCION_INVENTARIO := "inventario"
 const ACCION_USAR := "usar_herramienta"
@@ -59,6 +63,95 @@ var ITEMS := {
 		"ficha_titulo": "ITEM 3 - SNAP-27 Thermoelectric Generator (Apollo 12)",
 		"ficha_texto": "The SNAP-27 was a radioisotope thermoelectric generator that provided the power needed to keep the ALSEP scientific station operating.\n\nIt used a plutonium-238 capsule that generated heat through radioactive decay. An array of 442 thermoelectric couples converted that heat directly into electricity.\n\nThe generator produced approximately 70 watts of direct current at 16 volts, supplying power to the scientific instruments at the central station.\n\nWithout this power supply system, the experiments would not have been able to continue operating on the lunar surface.",
 	},
+	"escobilla": {
+		"nombre": "Anti-Static Brush",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Anti-Static Brush.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Removes Martian dust without damaging solar cells.",
+	},
+	"iman": {
+		"nombre": "High-Power Magnet",
+		"modelo": "res://Models/Objetos/Iman_Alta_Potencia_Voxel.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Pulls metal scrap away from buried parts.",
+	},
+	"cincel": {
+		"nombre": "Steel Chisel",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Steel Chisel.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Breaks apart rockfalls and hard rock.",
+	},
+	"palanca": {
+		"nombre": "Metal Lever",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Metal Lever.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Forces open stuck or sealed containers.",
+	},
+	"rhu": {
+		"nombre": "RHU Heater Cartridge",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/RHU_Heater_Cartridge_Voxel.glb",
+		"herramienta": false,
+		"robot": "Radioisotope Heater Unit",
+		"uso": "Keeps electronics warm in the Martian cold.",
+	},
+	"petalo": {
+		"nombre": "Solar Panel Petal",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Solar Panel Petal (Mars Pathfinder).glb",
+		"herramienta": false,
+		"robot": "Mars Pathfinder (1997)",
+		"uso": "Supplied power to the lander together with its batteries.",
+		"ficha_titulo": "ITEM 1 - Solar Panel Petal (Mars Pathfinder)",
+		"ficha_texto": "Pathfinder had three triangular metal solar panels, known as petals, which unfolded after landing.\n\nTheir solar cells, with a total surface area of more than 2.5 square meters, supplied power to the lander in combination with rechargeable batteries.\n\nIn addition to powering its systems, Pathfinder used its equipment to observe Sojourner's operations and transmit its data to Earth.",
+	},
+	"ruedas": {
+		"nombre": "Rocker-Bogie Wheel System",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Wheel System and Rocker-Bogie Suspension (Sojourner).glb",
+		"herramienta": false,
+		"robot": "Sojourner (1997)",
+		"uso": "Six-wheel mobility system with rocker-bogie suspension.",
+		"ficha_titulo": "ITEM 2 - Six-Wheel System and Rocker-Bogie Suspension (Sojourner)",
+		"ficha_texto": "Sojourner was a small six-wheeled vehicle equipped with a suspension system known as rocker-bogie.\n\nThis design was part of its mobility system and allowed it to travel across the Martian surface while exploring the rocks and terrain around Pathfinder.\n\nIts movements also provided information about soil properties through the study of its tracks and the behavior of its wheels.",
+	},
+	"apxs": {
+		"nombre": "APXS Spectrometer",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/APXS Spectrometer (Sojourner).glb",
+		"herramienta": false,
+		"robot": "Sojourner (1997)",
+		"uso": "Analyzed the composition of Martian rocks and soil.",
+		"ficha_titulo": "ITEM 3 - APXS Spectrometer (Sojourner)",
+		"ficha_texto": "RECOVERED RECORD: APXS SPECTROMETER\n\nThe Alpha Particle X-ray Spectrometer (APXS) was one of Sojourner's scientific instruments.\n\nIts purpose was to analyze the composition of Martian rocks and soil, providing information about the materials present on the surface.\n\nImages of the analyzed samples were also transmitted to Earth to facilitate their study.\n\nThanks to this instrument, Sojourner could do more than travel across Mars: it could also investigate what the planet was made of.",
+	},
+	"panel_delta": {
+		"nombre": "Solar Panel Array",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Solar Panel Array (Opportunity).glb",
+		"herramienta": false,
+		"robot": "Opportunity (2004)",
+		"uso": "Generated up to 140 watts to power the rover.",
+		"ficha_titulo": "ITEM 1 - Solar Panel Array (Opportunity)",
+		"ficha_texto": "Opportunity used an array of solar panels distributed across its upper deck, extending out to the sides like a pair of wings.\n\nUnder full sunlight, they could generate up to 140 watts of power. This electricity was stored in two rechargeable batteries to power the rover's systems.\n\nTheir operation was essential for keeping the electronic equipment and scientific instruments active during the exploration of Mars.",
+	},
+	"brazo_idd": {
+		"nombre": "IDD Robotic Arm",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/IDD Robotic Arm and RAT Tool (Opportunity).glb",
+		"herramienta": false,
+		"robot": "Opportunity (2004)",
+		"uso": "Brought scientific instruments and the RAT drill to rocks and soil.",
+		"ficha_titulo": "ITEM 2 - IDD Robotic Arm and RAT Tool (Opportunity)",
+		"ficha_texto": "The Instrument Deployment Device (IDD) was an articulated arm located at the front of the rover.\n\nVarious scientific instruments were mounted at its end, including the APXS spectrometer, the Mossbauer spectrometer, the microscopic imager, and the Rock Abrasion Tool (RAT).\n\nThis system made it possible to bring the instruments close to materials of interest and conduct investigations directly on Martian rocks and soil.",
+	},
+	"mastil": {
+		"nombre": "Pancam Panoramic Mast",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Pancam Panoramic Mast (Opportunity).glb",
+		"herramienta": false,
+		"robot": "Opportunity (2004)",
+		"uso": "Held the panoramic and navigation cameras.",
+		"ficha_titulo": "ITEM 3 - Pancam Panoramic Mast (Opportunity)",
+		"ficha_texto": "The Pancam mast was located on top of the rover and supported the panoramic and navigation cameras.\n\nPositioned approximately 1.4 meters above the wheel base, these cameras made it possible to capture images of the surroundings and document the places explored.\n\nThe mast also served as a periscope for the Miniature Thermal Emission Spectrometer (Mini-TES), another of the rover's scientific instruments.",
+	}
 }
 
 ## Objetivos de la misión. Al completarlos todos se abre el archivo histórico.
@@ -121,6 +214,11 @@ var _prev_mouse_mode := Input.MOUSE_MODE_VISIBLE
 var _prev_paused := false
 var _aviso_id := 0
 var objetivos_completados: Array[String] = []
+## Mision actual (cada nivel puede cambiarla con configurar_mision()).
+var objetivos: Array = OBJETIVOS.duplicate()
+var archivo_titulo := ARCHIVO_TITULO
+var archivo_subtitulo := ARCHIVO_SUBTITULO
+var archivo_texto := ARCHIVO_TEXTO
 var _cola_ventanas: Array[Dictionary] = []
 var _ventana_info: Control
 var _ventana_info_abierta := false
@@ -280,8 +378,37 @@ func completar_objetivo(id: String) -> void:
 	if objetivos_completados.has(id):
 		return
 	objetivos_completados.append(id)
-	if OBJETIVOS.all(func(o): return objetivos_completados.has(o)):
-		mostrar_ventana_info(ARCHIVO_TITULO, ARCHIVO_SUBTITULO, ARCHIVO_TEXTO, "")
+	if mision_terminada():
+		if archivo_texto != "":
+			mostrar_ventana_info(archivo_titulo, archivo_subtitulo, archivo_texto, "")
+		mision_completada.emit()
+
+
+func mision_terminada() -> bool:
+	return objetivos.all(func(o): return objetivos_completados.has(o))
+
+
+## Cambia la mision actual: objetivos a completar y archivo historico final.
+func configurar_mision(nuevos_objetivos: Array, titulo: String, subtitulo: String, texto: String) -> void:
+	objetivos = nuevos_objetivos.duplicate()
+	archivo_titulo = titulo
+	archivo_subtitulo = subtitulo
+	archivo_texto = texto
+
+
+## Vacia el inventario (p. ej. al llegar a un planeta nuevo).
+func reiniciar() -> void:
+	items.clear()
+	objetivos_completados.clear()
+	equipar("")
+	ocultar_aviso()
+
+
+## Espera a que no quede ninguna ventana de informacion abierta.
+func esperar_ventanas() -> void:
+	await get_tree().process_frame
+	while _ventana_info_abierta or not _cola_ventanas.is_empty():
+		await ventanas_cerradas
 
 
 ## Ventana con un modelo 3D girando a la izquierda y texto a la derecha.
@@ -327,6 +454,8 @@ func _cerrar_ventana_info() -> void:
 	_equipada_panel.visible = equipada != ""
 	if not _cola_ventanas.is_empty():
 		_abrir_siguiente_ventana.call_deferred()
+	else:
+		ventanas_cerradas.emit()
 
 
 func _construir_ventana_info(datos: Dictionary) -> void:

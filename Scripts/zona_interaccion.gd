@@ -166,11 +166,37 @@ func animar_herramienta(id: String, duracion: float) -> Signal:
 	return t.finished
 
 
-## Instancia un objeto recogible flotando sobre la zona.
-func soltar_premio(escena: PackedScene, altura: float) -> Node3D:
-	if escena == null:
+## Crea en código un objeto recogible flotante para un item del Inventario.
+func crear_recogible(id: String, tam: float = 1.6) -> Area3D:
+	var area := Area3D.new()
+	area.set_script(load("res://Scripts/objeto_recogible.gd"))
+	area.item_id = id
+	area.velocidad_rotacion = 1.5
+	area.add_to_group("objeto_clave")
+	var ruta: String = Inventario.modelo_de(id)
+	if ruta != "" and ResourceLoader.exists(ruta):
+		var modelo: Node3D = load(ruta).instantiate()
+		var caja: AABB = Inventario.calcular_aabb(modelo)
+		var escala := tam / maxf(caja.size[caja.get_longest_axis_index()], 0.01)
+		modelo.scale = Vector3.ONE * escala
+		modelo.position = -caja.get_center() * escala
+		area.add_child(modelo)
+	var forma := CollisionShape3D.new()
+	forma.shape = SphereShape3D.new()
+	forma.shape.radius = maxf(tam * 0.8, 1.2)
+	area.add_child(forma)
+	return area
+
+
+## Instancia un objeto recogible flotando sobre la zona (desde una escena o un id).
+func soltar_premio(escena: PackedScene, altura: float, id: String = "") -> Node3D:
+	var premio: Node3D
+	if escena != null:
+		premio = escena.instantiate()
+	elif id != "":
+		premio = crear_recogible(id)
+	else:
 		return null
-	var premio: Node3D = escena.instantiate()
 	premio.position = Vector3(0, altura, 0)
 	if "retraso_recogida" in premio:
 		premio.retraso_recogida = 1.0

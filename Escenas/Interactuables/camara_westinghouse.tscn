@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://c0xm6mtyb0bp6"]
 
 [ext_resource type="PackedScene" uid="uid://dbyp551un2dc" path="res://Models/Objetos/Camara_Westinghouse_Voxel.glb" id="1_tyedf"]
+[ext_resource type="Script" path="res://Scripts/camara_reparable.gd" id="2_cam"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 2.671934
 
-[node name="CamaraWestinghouse" type="Area3D" unique_id=1031537781]
+[node name="CamaraWestinghouse" type="Area3D" unique_id=1031537781 groups=["objeto_clave"]]
+script = ExtResource("2_cam")
 
 [node name="Camara_Westinghouse_Voxel2" parent="." unique_id=1493423484 instance=ExtResource("1_tyedf")]
 

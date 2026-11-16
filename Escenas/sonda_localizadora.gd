@@ -74,6 +74,21 @@ func _paso_actual() -> String:
 
 
 func _objetivo_guiado() -> Node3D:
+	# Modo general (Marte): el objetivo activo mas cercano del grupo "guia".
+	var guias := get_tree().get_nodes_in_group("guia")
+	if not guias.is_empty():
+		var inv = get_node_or_null("/root/Inventario")
+		if inv and inv.bloqueado:
+			return null
+		var mejor: Node3D = null
+		var mejor_d := INF
+		for n in guias:
+			if is_instance_valid(n) and n is Node3D and n.has_method("es_guia_activa") and n.es_guia_activa():
+				var d := global_position.distance_to(n.global_position)
+				if d < mejor_d:
+					mejor_d = d
+					mejor = n
+		return mejor
 	var paso := _paso_actual()
 	if paso == "":
 		return null

@@ -10,8 +10,11 @@ var indice_actual: int = 0
 var caracteres_mostrados: float = 0.0
 var velocidad_escritura: float = 40.0 
 var permite_input: bool = true # NUEVA VARIABLE: Para bloquear el teclado
+var _pausa_previa := false
+var _pausando := false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide() 
 
 # Agregamos "se_puede_pasar" con un valor por defecto en true
@@ -22,6 +25,11 @@ func mostrar_textos(nuevas_lineas: Array, se_puede_pasar: bool = true) -> void:
 	var pista = get_node_or_null("Panel/Continuar")
 	if pista:
 		pista.visible = se_puede_pasar
+	# Los textos que se pasan con Enter pausan el juego hasta terminar.
+	if se_puede_pasar and not _pausando:
+		_pausando = true
+		_pausa_previa = get_tree().paused
+		get_tree().paused = true
 	show()
 	_cargar_linea()
 
@@ -54,4 +62,7 @@ func _input(event: InputEvent) -> void:
 				_cargar_linea()
 			else:
 				hide()
+				if _pausando:
+					_pausando = false
+					get_tree().paused = _pausa_previa
 				textos_terminados.emit()

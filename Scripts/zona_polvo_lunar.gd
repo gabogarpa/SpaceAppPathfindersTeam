@@ -7,6 +7,8 @@ signal excavado
 
 ## Escena del objeto que aparece al limpiar el polvo (p. ej. brazo_robotico.tscn).
 @export var premio_escena: PackedScene
+## Alternativa a premio_escena: id del Inventario para crear el recogible en código.
+@export var premio_id := ""
 @export var altura_premio: float = 1.3
 @export var duracion_barrido: float = 1.4
 
@@ -19,6 +21,10 @@ func _init() -> void:
 	herramienta_requerida = "escoba"
 	mensaje = "Use the broom"
 	guia = "polvo"
+
+
+func es_guia_activa() -> bool:
+	return not esta_completada() and Inventario.tiene(herramienta_requerida)
 
 
 func _al_iniciar() -> void:
@@ -44,6 +50,6 @@ func _usar() -> void:
 	create_tween().tween_property(crater, "scale", Vector3.ONE, 0.35) \
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-	soltar_premio(premio_escena, altura_premio)
+	soltar_premio(premio_escena, altura_premio, premio_id)
 	Inventario.mostrar_aviso("You found something buried!", 2.5)
 	excavado.emit()

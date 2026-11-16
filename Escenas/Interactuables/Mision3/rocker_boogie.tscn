@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpe7qddve35r5" path="res://Escenas/Interactuables/Mision3/rocker_boogie.gd" id="1_7uxwx"]
 [ext_resource type="PackedScene" uid="uid://b80qkyqiea8je" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Wheel System and Rocker-Bogie Suspension (Sojourner).glb" id="1_dt5yv"]
-[ext_resource type="Script" uid="uid://c1krn0a0cuc46" path="res://popup_kit/interactable_3d.gd" id="2_7wwac"]
+[ext_resource type="Script" path="res://Scripts/zona_puzzle.gd" id="2_7wwac"]
 [ext_resource type="PackedScene" uid="uid://c0mcsi0st1821" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/chatarra_marron.glb" id="3_7wwac"]
 [ext_resource type="PackedScene" uid="uid://cds62jl8wftt7" path="res://Escenas/Interactuables/Mision3/puzzle_chatarra.tscn" id="5_m1qk3"]
 
@@ -18,9 +18,12 @@ script = ExtResource("1_7uxwx")
 transform = Transform3D(1.585, 0, 0, 0, 1.585, 0, 0, 0, 1.585, 0, 1.0739285, 0)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=136448370]
-visible = false
 script = ExtResource("2_7wwac")
+herramienta_requerida = "iman"
+mensaje = "Scrap metal is covering the Rocker-Bogie\nUse the magnet"
+accion_texto = "Use magnet"
 popup_scene = ExtResource("5_m1qk3")
+premio_id = "ruedas"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2120585056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62516665, 0)

@@ -5,6 +5,8 @@ extends "res://Scripts/zona_interaccion.gd"
 
 ## Escena del objeto que aparece al apartar los obstáculos.
 @export var premio_escena: PackedScene
+## Alternativa a premio_escena: id del Inventario para crear el recogible en código.
+@export var premio_id := ""
 @export var altura_premio: float = 1.2
 @export var duracion: float = 1.6
 ## Qué tan lejos se apartan los obstáculos.
@@ -19,6 +21,10 @@ extends "res://Scripts/zona_interaccion.gd"
 func _init() -> void:
 	herramienta_requerida = "brazo_robotico"
 	mensaje = "Use the robotic arm"
+
+
+func es_guia_activa() -> bool:
+	return not esta_completada() and Inventario.tiene(herramienta_requerida)
 
 
 func _al_iniciar() -> void:
@@ -46,7 +52,7 @@ func _usar() -> void:
 		var t := create_tween()
 		t.tween_property(pieza_oculta, "scale", Vector3.ONE * 0.01, 0.3)
 		t.tween_callback(pieza_oculta.hide)
-	soltar_premio(premio_escena, altura_premio)
+	soltar_premio(premio_escena, altura_premio, premio_id)
 	Inventario.mostrar_aviso("You found something underneath!", 2.5)
 
 
