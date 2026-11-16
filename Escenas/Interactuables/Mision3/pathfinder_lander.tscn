@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bxs6qyq0jeyom"]
+
+[ext_resource type="PackedScene" uid="uid://dmdywvali8qwn" path="res://Models/Robots/MISSION 03 THE FIRST FOOTPRINTS/Pathfinder Lander.glb" id="1_vkk3e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 3.8248448
+
+[node name="PathfinderLander" type="Area3D" unique_id=1935735213]
+
+[node name="Pathfinder Lander" parent="." unique_id=1616307418 instance=ExtResource("1_vkk3e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=126061763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0078175, -0.19821405)
+shape = SubResource("SphereShape3D_0emdt")

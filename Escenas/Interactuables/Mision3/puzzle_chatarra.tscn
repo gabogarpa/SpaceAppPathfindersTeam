@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cds62jl8wftt7"]
+
+[ext_resource type="Script" uid="uid://cyiaqpep5ejw7" path="res://popup_kit/puzzle_popup.gd" id="1_ep572"]
+[ext_resource type="Texture2D" uid="uid://kcub7ajmnew1" path="res://Images/RockerBoogie.png" id="2_xol0r"]
+[ext_resource type="Script" uid="uid://cjac1014fiqy4" path="res://popup_kit/drop_slot.gd" id="3_td17l"]
+[ext_resource type="Script" uid="uid://dwxufcwo8ve6o" path="res://Scripts/fila_igual.gd" id="3_xol0r"]
+[ext_resource type="Texture2D" uid="uid://l6q10ud6qey1" path="res://Images/EngranajeChatarra.png" id="4_ttrw7"]
+[ext_resource type="Script" uid="uid://0wn0qo2nt7gb" path="res://popup_kit/draggable_item.gd" id="5_8oifo"]
+[ext_resource type="Texture2D" uid="uid://oc846oglppu6" path="res://Images/PlacaChatarra.png" id="6_3n5mk"]
+[ext_resource type="Texture2D" uid="uid://chgo3nhkiywmi" path="res://Images/TuboChatarra.png" id="7_738sn"]
+
+[node name="PuzzleChatarra" type="Control" unique_id=276555326]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ep572")
+puzzle_id = "rocker_boogie_chatarra"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1695726579]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Boogie" type="TextureRect" parent="." unique_id=826373055]
+layout_mode = 0
+offset_left = 113.99999
+offset_top = 157.0
+offset_right = 2034.0
+offset_bottom = 1237.0
+scale = Vector2(0.295, 0.295)
+texture = ExtResource("2_xol0r")
+
+[node name="Chatarra1" type="TextureRect" parent="." unique_id=74741738]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 255.0
+offset_right = 303.0
+offset_bottom = 448.0
+texture = ExtResource("4_ttrw7")
+script = ExtResource("5_8oifo")
+
+[node name="Chatarra2" type="TextureRect" parent="." unique_id=2051779592]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 136.0
+offset_right = 586.0
+offset_bottom = 348.0
+texture = ExtResource("6_3n5mk")
+script = ExtResource("5_8oifo")
+
+[node name="Chatarra3" type="TextureRect" parent="." unique_id=1178905910]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 266.0
+offset_right = 665.0
+offset_bottom = 406.0
+texture = ExtResource("7_738sn")
+script = ExtResource("5_8oifo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1746088187]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 559.0
+offset_right = 749.0
+offset_bottom = 759.0
+script = ExtResource("3_xol0r")
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=880909543]
+layout_mode = 2
+script = ExtResource("3_td17l")
+lock_when_correct = true
+
+[node name="Panel2" type="Panel" parent="VBoxContainer" unique_id=1269889749]
+layout_mode = 2
+script = ExtResource("3_td17l")
+lock_when_correct = true
+
+[node name="Panel3" type="Panel" parent="VBoxContainer" unique_id=412592648]
+layout_mode = 2
+script = ExtResource("3_td17l")
+lock_when_correct = true

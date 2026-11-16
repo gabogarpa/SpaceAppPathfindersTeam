@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dj1agxliolh00"]
+
+[ext_resource type="PackedScene" uid="uid://c7dg44p8eun7a" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/APXS Spectrometer (Sojourner).glb" id="1_fu5k5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.469395
+
+[node name="APXS Spectrometer" type="Area3D" unique_id=478896075]
+
+[node name="APXS Spectrometer (Sojourner)" parent="." unique_id=2005334329 instance=ExtResource("1_fu5k5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1303147345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4421816, 0)
+shape = SubResource("SphereShape3D_0emdt")

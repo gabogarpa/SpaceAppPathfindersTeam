@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cabisat5rtula"]
+
+[ext_resource type="PackedScene" uid="uid://c0mcsi0st1821" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/chatarra_marron.glb" id="1_ds0ba"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 1.8610103
+
+[node name="Chatarra" type="Area3D" unique_id=373880599]
+
+[node name="chatarra_marron" parent="." unique_id=284454497 instance=ExtResource("1_ds0ba")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=398856735]
+shape = SubResource("SphereShape3D_0emdt")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kulx4rmuw7h1"
-path="res://.godot/imported/WS.png-fd67e4a9ca81b5e228575c5aebf5a659.ctex"
+uid="uid://oc846oglppu6"
+path="res://.godot/imported/PlacaChatarra.png-1a9cf791b720902534933fd79a97f1b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/WS.png"
-dest_files=["res://.godot/imported/WS.png-fd67e4a9ca81b5e228575c5aebf5a659.ctex"]
+source_file="res://Images/PlacaChatarra.png"
+dest_files=["res://.godot/imported/PlacaChatarra.png-1a9cf791b720902534933fd79a97f1b5.ctex"]
 
 [params]
 
