@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5b6surh5xx28"
-path="res://.godot/imported/ADcolor.png-ffc2a578b1df3d29ba5bb75f0e9906b6.ctex"
+uid="uid://b4wc6rt7j30ov"
+path="res://.godot/imported/Opportunity nasa science.png-06038982315ee5529efd8ff727702947.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/ADcolor.png"
-dest_files=["res://.godot/imported/ADcolor.png-ffc2a578b1df3d29ba5bb75f0e9906b6.ctex"]
+source_file="res://Models/Robots/MISSION 04 THE VERY LAST SIGNAL/Opportunity nasa science.png"
+dest_files=["res://.godot/imported/Opportunity nasa science.png-06038982315ee5529efd8ff727702947.ctex"]
 
 [params]
 

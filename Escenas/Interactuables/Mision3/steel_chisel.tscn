@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://djjixfxmwlsmf"]
+
+[ext_resource type="PackedScene" uid="uid://h0a0hp0uja64" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Steel Chisel.glb" id="1_fhm1n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.4901295
+
+[node name="SteelChisel" type="Area3D" unique_id=323391021]
+
+[node name="Steel Chisel" parent="." unique_id=682493451 instance=ExtResource("1_fhm1n")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=656400140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5856726, 0)
+shape = SubResource("SphereShape3D_0emdt")

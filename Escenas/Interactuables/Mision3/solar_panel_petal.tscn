@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cukvqaovwh1tm"]
+
+[ext_resource type="PackedScene" uid="uid://deksch864p4gm" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Solar Panel Petal (Mars Pathfinder).glb" id="1_vpgo0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.0410986
+
+[node name="SolarPanelPetal" type="Area3D" unique_id=326125129]
+
+[node name="Solar Panel Petal (Mars Pathfinder)" parent="." unique_id=2135984346 instance=ExtResource("1_vpgo0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=185710469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1737411, 0.20076942)
+shape = SubResource("SphereShape3D_0emdt")

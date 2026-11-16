@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvmchud23ssr6"
-path="res://.godot/imported/Bateria.png-762e6fb69b2580079bf345b34e4b3879.ctex"
+uid="uid://cdf3w4vhd065y"
+path.s3tc="res://.godot/imported/Iman.png-26a1cbdebe2927d44652290009d99d1e.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Models/Objetos/Bateria.png"
-dest_files=["res://.godot/imported/Bateria.png-762e6fb69b2580079bf345b34e4b3879.ctex"]
+source_file="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Iman.png"
+dest_files=["res://.godot/imported/Iman.png-26a1cbdebe2927d44652290009d99d1e.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -23,7 +24,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -37,4 +38,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

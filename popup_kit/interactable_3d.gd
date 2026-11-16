@@ -1,19 +1,14 @@
 class_name Interactable3D
 extends Area3D
-## Put this on an Area3D (with a CollisionShape3D child) on any 3D object.
-## Opens `popup_scene` when clicked with a visible mouse, or when interact() is
-## called (e.g. by InteractRay for first-person games).
 
 signal opened(popup: PuzzlePopup)
-## Connect this to whatever should happen in the 3D world (open a door, etc.).
 signal solved
 
 @export var popup_scene: PackedScene
-## Extra data for the popup, readable there as `context`.
 @export var context: Dictionary = {}
 @export var open_on_mouse_click := true
-## Can't be opened again once its puzzle is solved.
-@export var disable_when_solved := false
+@export var open_on_proximity := true # NUEVO: Se abre al acercarse
+@export var disable_when_solved := true # Cambiado a true para que no se reabra al resolverlo
 
 var is_solved := false
 
@@ -21,6 +16,13 @@ var is_solved := false
 func _ready() -> void:
 	input_ray_pickable = true
 	input_event.connect(_on_input_event)
+	body_entered.connect(_on_body_entered) # NUEVO: Detecta cuando MoonBot entra al área
+
+
+func _on_body_entered(body: Node3D) -> void:
+	# Si el nodo que entró es el jugador (CharacterBody3D), abrimos el puzzle
+	if open_on_proximity and body is CharacterBody3D:
+		interact()
 
 
 func interact() -> void:
@@ -30,7 +32,10 @@ func interact() -> void:
 		return
 	var ctx := context.duplicate()
 	ctx["source"] = self
-	var popup := PopupManager.open(popup_scene, ctx)
+	
+	# CAMBIA ESTA LÍNEA (le indicamos explícitamente que es un PuzzlePopup):
+	var popup: PuzzlePopup = PopupManager.open(popup_scene, ctx)
+	
 	popup.solved.connect(_on_popup_solved)
 	opened.emit(popup)
 

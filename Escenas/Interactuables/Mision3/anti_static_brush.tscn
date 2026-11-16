@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cg5n0ksw11n48"]
+
+[ext_resource type="PackedScene" uid="uid://b8e02al2c46or" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Anti-Static Brush.glb" id="1_rv0e7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.1612687
+
+[node name="AntiStaticBrush" type="Area3D" unique_id=1640111359]
+
+[node name="Anti-Static Brush" parent="." unique_id=1326747281 instance=ExtResource("1_rv0e7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1650578916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4178236, 0)
+shape = SubResource("SphereShape3D_0emdt")

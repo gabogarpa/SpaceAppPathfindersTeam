@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d3m12fhwcphaq"]
+
+[ext_resource type="PackedScene" uid="uid://trmsunxjmmde" path="res://Models/Robots/MISSION 03 THE FIRST FOOTPRINTS/Sojourner.glb" id="1_rgok4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 2.708398
+
+[node name="Sojouner" type="Area3D" unique_id=675773011]
+
+[node name="Sojourner" parent="." unique_id=482358036 instance=ExtResource("1_rgok4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1620406338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4947102, 0)
+shape = SubResource("SphereShape3D_0emdt")

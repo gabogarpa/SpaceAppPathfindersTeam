@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://boe13br02p0d4" path="res://Scripts/CameraBotScript.gd" id="3_c3o8o"]
 [ext_resource type="AudioStream" uid="uid://320ugojp61lp" path="res://Sounds/servo-motor-loop(3) (mp3cut.net).wav" id="4_lkcb7"]
 [ext_resource type="AudioStream" uid="uid://d17wlo3aqyrda" path="res://Sounds/servo-jump-onda1.wav" id="5_mich5"]
-[ext_resource type="Script" uid="uid://csyq88xm0oehw" path="res://Escenas/sonda_localizadora.gd" id="6_3wq11"]
+[ext_resource type="Script" uid="uid://csyq88xm0oehw" path="res://Scripts/sonda_localizadora.gd" id="6_3wq11"]
 [ext_resource type="Shader" uid="uid://dnmo8oisk204s" path="res://Shaders/MoonBot.gdshader" id="6_042cr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e75f7"]
