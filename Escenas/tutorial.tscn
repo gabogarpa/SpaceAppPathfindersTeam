@@ -14,23 +14,35 @@ script = ExtResource("1_w3ak3")
 [node name="CajaTexto" parent="." unique_id=308297068 instance=ExtResource("3_5t46x")]
 
 [node name="AD" type="TextureRect" parent="." unique_id=1419791683]
-modulate = Color(1, 1, 1, 0.4392157)
-self_modulate = Color(1, 1, 1, 0.4392157)
 texture_filter = 1
+<<<<<<< HEAD
 offset_left = 22.0
 offset_top = 500.0
 offset_right = 152.0
 offset_bottom = 530.0021
 scale = Vector2(2.94, 2.94)
+=======
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 194.0
+offset_bottom = 94.0
+scale = Vector2(3.9, 3.9)
+>>>>>>> 0ffda8426629d829ddadf3740fdf813eef8a95a7
 texture = ExtResource("4_5t46x")
 
 [node name="WS" type="TextureRect" parent="." unique_id=832143359]
-modulate = Color(1, 1, 1, 0.4392157)
-self_modulate = Color(1, 1, 1, 0.4392157)
 texture_filter = 1
+<<<<<<< HEAD
 offset_left = 416.0
 offset_top = 500.0
 offset_right = 546.0
 offset_bottom = 530.0021
 scale = Vector2(2.94, 2.94)
+=======
+offset_left = 64.0
+offset_top = 216.0
+offset_right = 194.0
+offset_bottom = 246.0
+scale = Vector2(3.9, 3.9)
+>>>>>>> 0ffda8426629d829ddadf3740fdf813eef8a95a7
 texture = ExtResource("5_snagp")

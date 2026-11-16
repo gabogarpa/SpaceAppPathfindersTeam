@@ -14,27 +14,104 @@ const TECLA_USAR := KEY_E
 const RUTA_FUENTE := "res://Fonts/UFO50Tall.ttf"
 
 ## Catálogo de objetos. Agrega aquí nuevas piezas o herramientas.
+## "ficha" = ventana de información que aparece al conseguir la pieza.
 var ITEMS := {
 	"escoba": {
-		"nombre": "Escoba",
+		"nombre": "Broom",
 		"modelo": "res://Models/Objetos/Escoba_Voxel.glb",
 		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Sweeps away lunar dust to uncover buried parts.",
 	},
 	"brazo_robotico": {
-		"nombre": "Brazo robotico",
+		"nombre": "Robotic Arm",
 		"modelo": "res://Models/Objetos/Brazo_Excavador_Voxel.glb",
+		"herramienta": true,
+		"robot": "Surveyor 3 (1967)",
+		"uso": "Dug, collected and moved lunar soil to study the regolith. SPARK uses it to move scrap and rocks and to lift objects.",
+		"ficha_titulo": "ITEM 1 - Sampling Arm (Surveyor 3)",
+		"ficha_texto": "This approximately 1.5-meter pantograph arm supported a small scoop designed to handle lunar soil.\n\nIts purpose was to dig, collect, and move material from the surface, allowing scientists to observe how lunar regolith behaved.\n\nDuring its mission, the sampler operated for 18 hours and 22 minutes, digging trenches up to 18 centimeters deep.\n\nIts operations provided information about the strength, texture, and structure of the lunar soil.",
+	},
+	"bateria": {
+		"nombre": "Battery Cell",
+		"modelo": "res://Models/Objetos/Bateria_Portatil_Voxel.glb",
+		"icono": "res://Models/Objetos/Bateria.png",
 		"herramienta": false,
+		"robot": "Apollo 12 (1969) - television camera",
+		"uso": "Power cell for the television camera.",
+	},
+	"camara_tv": {
+		"nombre": "Television Camera",
+		"modelo": "res://Models/Objetos/Camara_Westinghouse_Voxel.glb",
+		"icono": "res://Models/Objetos/Camara.png",
+		"herramienta": false,
+		"robot": "Apollo 12 (1969)",
+		"uso": "Broadcast video of the operations on the lunar surface.",
+		"ficha_titulo": "ITEM 2 - Television Camera (Apollo 12)",
+		"ficha_texto": "This equipment was part of Apollo 12's television system, intended for the mission's operations on the lunar surface.\n\nDuring installation, the camera was accidentally pointed at the Sun. The exposure damaged its vidicon tube, leaving it completely inoperable.\n\nAlthough it could not perform its function during the mission, this component represents one of the technical challenges the astronauts faced during their exploration.",
+	},
+	"snap27": {
+		"nombre": "SNAP-27 Generator",
+		"modelo": "res://Models/Objetos/SNAP27_ALSEP_Voxel.glb",
+		"herramienta": false,
+		"robot": "Apollo 12 (1969) - ALSEP station",
+		"uso": "Generated electricity for the scientific instruments of the central station.",
+		"ficha_titulo": "ITEM 3 - SNAP-27 Thermoelectric Generator (Apollo 12)",
+		"ficha_texto": "The SNAP-27 was a radioisotope thermoelectric generator that provided the power needed to keep the ALSEP scientific station operating.\n\nIt used a plutonium-238 capsule that generated heat through radioactive decay. An array of 442 thermoelectric couples converted that heat directly into electricity.\n\nThe generator produced approximately 70 watts of direct current at 16 volts, supplying power to the scientific instruments at the central station.\n\nWithout this power supply system, the experiments would not have been able to continue operating on the lunar surface.",
 	},
 }
+
+## Objetivos de la misión. Al completarlos todos se abre el archivo histórico.
+const OBJETIVOS := ["brazo_robotico", "camara", "estacion"]
+
+const ARCHIVO_TITULO := "HISTORICAL ARCHIVE UNLOCKED"
+const ARCHIVO_SUBTITULO := "APOLLO 12: THE MEETING OF TWO GENERATIONS\nA story of exploration, science, and collaboration."
+const ARCHIVO_TEXTO := """On April 20, 1967, Surveyor 3 landed in Oceanus Procellarum with the goal of studying the lunar terrain and demonstrating that robotic spacecraft could operate on the surface.
+
+One of its notable instruments was a sampling arm that could dig into and manipulate the soil. During its mission, it transmitted 6,326 photographs and gathered information about the strength, texture, and structure of the lunar regolith.
+
+THE MEETING WITH INTREPID
+
+On November 19, 1969, Apollo 12's lunar module Intrepid landed about 180 meters from Surveyor 3. Astronauts Pete Conrad and Alan Bean arrived to study the surface, collect samples, and deploy scientific experiments.
+
+While its television camera was being installed, it was accidentally pointed at the Sun, damaging its vidicon tube and rendering it unusable.
+
+The following day, the astronauts visited Surveyor 3 and recovered approximately 10 kilograms of components, including its camera, to examine them on Earth. This made it possible to study how the materials had withstood more than two years on the Moon.
+
+THE ENERGY THAT KEPT SCIENCE ALIVE
+
+Apollo 12 also deployed the ALSEP scientific station, whose operation depended on the SNAP-27 generator.
+
+This device converted the heat produced by plutonium-238 into electricity, powering the scientific instruments and allowing them to transmit their measurements to Earth.
+
+Thanks to these experiments, researchers were able to study seismic activity, the magnetic field, lunar dust, the atmosphere, and particles coming from the Sun.
+
+The station remained operational until September 30, 1977, when it was shut down along with the other ALSEP stations.
+
+THE LEGACY OF A MISSION
+
+Surveyor 3 helped pave the way for human exploration. Apollo 12 built on those advances and returned to study the remains of one of the first robotic explorers.
+
+One machine paved the way for human beings. Human beings returned to learn more about that machine.
+
+Two different missions. One shared story of exploration.
+
+And now, decades later, PATHFINDERS continues that legacy."""
 
 var items: Array[String] = []
 var equipada := ""
 var abierto := false
+## true mientras no se debe interactuar (p. ej. durante el texto de introduccion).
+var bloqueado := false
 
 var _capa: CanvasLayer
 var _aviso_panel: PanelContainer
 var _aviso_label: Label
-var _equipada_label: Label
+var _equipada_panel: PanelContainer
+var _equipada_nombre: Label
+var _equipada_detalle: Label
+var _equipada_vista: SubViewportContainer
+var _equipada_pivote: Node3D
 var _ventana: Control
 var _grid: GridContainer
 var _info_label: Label
@@ -43,6 +120,12 @@ var _previews: Array[Node3D] = []
 var _prev_mouse_mode := Input.MOUSE_MODE_VISIBLE
 var _prev_paused := false
 var _aviso_id := 0
+var objetivos_completados: Array[String] = []
+var _cola_ventanas: Array[Dictionary] = []
+var _ventana_info: Control
+var _ventana_info_abierta := false
+var _pausa_previa_info := false
+var _mouse_previo_info := Input.MOUSE_MODE_VISIBLE
 
 
 func _ready() -> void:
@@ -79,10 +162,7 @@ func quitar(id: String) -> void:
 
 func equipar(id: String) -> void:
 	equipada = id
-	if id == "":
-		_equipada_label.text = ""
-	else:
-		_equipada_label.text = "Equipado: %s\n[%s] Usar" % [nombre_de(id), tecla_de(ACCION_USAR)]
+	_actualizar_equipada()
 	herramienta_equipada.emit(id)
 
 
@@ -92,6 +172,32 @@ func nombre_de(id: String) -> String:
 
 func modelo_de(id: String) -> String:
 	return ITEMS.get(id, {}).get("modelo", "")
+
+
+func robot_de(id: String) -> String:
+	return ITEMS.get(id, {}).get("robot", "")
+
+
+func uso_de(id: String) -> String:
+	return ITEMS.get(id, {}).get("uso", "")
+
+
+## Texto con robot y uso de un objeto.
+func descripcion_de(id: String) -> String:
+	var lineas: Array[String] = []
+	if robot_de(id) != "":
+		lineas.append("Robot: %s" % robot_de(id))
+	if uso_de(id) != "":
+		lineas.append("Use: %s" % uso_de(id))
+	return "\n".join(lineas)
+
+
+func icono_de(id: String) -> String:
+	return ITEMS.get(id, {}).get("icono", "")
+
+
+func tiene_ficha(id: String) -> bool:
+	return ITEMS.get(id, {}).has("ficha_texto")
 
 
 func es_herramienta(id: String) -> bool:
@@ -126,7 +232,7 @@ func ocultar_aviso() -> void:
 
 
 func abrir() -> void:
-	if abierto:
+	if abierto or _ventana_info_abierta:
 		return
 	var popups := get_node_or_null("/root/PopupManager")
 	if popups and popups.has_method("is_open") and popups.is_open():
@@ -137,6 +243,7 @@ func abrir() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().paused = true
 	_refrescar_ventana()
+	_equipada_panel.hide()
 	_ventana.show()
 	inventario_toggled.emit(true)
 
@@ -146,6 +253,7 @@ func cerrar() -> void:
 		return
 	abierto = false
 	_ventana.hide()
+	_equipada_panel.visible = equipada != "" and not _ventana_info_abierta
 	get_tree().paused = _prev_paused
 	Input.mouse_mode = _prev_mouse_mode
 	inventario_toggled.emit(false)
@@ -158,9 +266,143 @@ func alternar() -> void:
 		abrir()
 
 
+# ---------------------------------------------------------------- Fichas / misión
+
+## Muestra la ventana de información de una pieza (objeto + texto a un lado).
+func mostrar_ficha(id: String) -> void:
+	if not tiene_ficha(id):
+		return
+	var item: Dictionary = ITEMS[id]
+	mostrar_ventana_info("PIECE RECOVERED", item.ficha_titulo, item.ficha_texto, id)
+
+
+func completar_objetivo(id: String) -> void:
+	if objetivos_completados.has(id):
+		return
+	objetivos_completados.append(id)
+	if OBJETIVOS.all(func(o): return objetivos_completados.has(o)):
+		mostrar_ventana_info(ARCHIVO_TITULO, ARCHIVO_SUBTITULO, ARCHIVO_TEXTO, "")
+
+
+## Ventana con un modelo 3D girando a la izquierda y texto a la derecha.
+## Si ya hay una abierta, se pone en cola.
+func mostrar_ventana_info(encabezado: String, titulo: String, texto: String, id_modelo: String) -> void:
+	_cola_ventanas.append({"encabezado": encabezado, "titulo": titulo, "texto": texto, "id": id_modelo})
+	if not _ventana_info_abierta:
+		_abrir_siguiente_ventana()
+
+
+func ventana_info_abierta() -> bool:
+	return _ventana_info_abierta
+
+
+func _abrir_siguiente_ventana() -> void:
+	if _cola_ventanas.is_empty():
+		return
+	var popups := get_node_or_null("/root/PopupManager")
+	if popups and popups.has_method("is_open") and popups.is_open():
+		await popups.popup_closed
+	if abierto:
+		cerrar()
+	var datos: Dictionary = _cola_ventanas.pop_front()
+	_ventana_info_abierta = true
+	_pausa_previa_info = get_tree().paused
+	_mouse_previo_info = Input.mouse_mode
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	ocultar_aviso()
+	_equipada_panel.hide()
+	_construir_ventana_info(datos)
+
+
+func _cerrar_ventana_info() -> void:
+	if not _ventana_info_abierta:
+		return
+	_ventana_info_abierta = false
+	_ventana_info.queue_free()
+	_ventana_info = null
+	_previews.clear()
+	get_tree().paused = _pausa_previa_info
+	Input.mouse_mode = _mouse_previo_info
+	_equipada_panel.visible = equipada != ""
+	if not _cola_ventanas.is_empty():
+		_abrir_siguiente_ventana.call_deferred()
+
+
+func _construir_ventana_info(datos: Dictionary) -> void:
+	_ventana_info = Control.new()
+	_ventana_info.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_capa.add_child(_ventana_info)
+	var fondo := ColorRect.new()
+	fondo.color = Color(0, 0, 0, 0.7)
+	fondo.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_ventana_info.add_child(fondo)
+	var centro := CenterContainer.new()
+	centro.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_ventana_info.add_child(centro)
+	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override("panel", _estilo_panel(0.92))
+	centro.add_child(panel)
+	var hbox := HBoxContainer.new()
+	hbox.add_theme_constant_override("separation", 16)
+	panel.add_child(hbox)
+
+	var con_modelo: bool = datos.id != ""
+	if con_modelo:
+		var marco := PanelContainer.new()
+		var estilo := _estilo_panel(0.4)
+		estilo.bg_color = Color(0.03, 0.08, 0.14, 1)
+		marco.add_theme_stylebox_override("panel", estilo)
+		marco.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		hbox.add_child(marco)
+		var contenedor := SubViewportContainer.new()
+		contenedor.stretch = true
+		contenedor.custom_minimum_size = Vector2(220, 220)
+		marco.add_child(contenedor)
+		contenedor.add_child(crear_preview(datos.id, Vector2i(220, 220)))
+
+	var vbox := VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 10)
+	hbox.add_child(vbox)
+	var enc := _label(datos.encabezado, 22)
+	enc.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	enc.modulate = Color(0.0, 0.85, 1.0)
+	vbox.add_child(enc)
+	var tit := _label(datos.titulo, 26)
+	tit.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	tit.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	tit.custom_minimum_size.x = 440 if con_modelo else 680
+	vbox.add_child(tit)
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size = Vector2(440 if con_modelo else 680, 380 if con_modelo else 470)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	vbox.add_child(scroll)
+	var cuerpo := _label(datos.texto, 18)
+	cuerpo.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	cuerpo.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	cuerpo.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(cuerpo)
+	var boton := Button.new()
+	boton.text = "Continue [Enter]"
+	boton.focus_mode = Control.FOCUS_NONE
+	boton.size_flags_horizontal = Control.SIZE_SHRINK_END
+	if _fuente:
+		boton.add_theme_font_override("font", _fuente)
+	boton.add_theme_font_size_override("font_size", 22)
+	boton.pressed.connect(_cerrar_ventana_info)
+	vbox.add_child(boton)
+
+
 # ---------------------------------------------------------------- Input
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _ventana_info_abierta:
+		if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel"):
+			_cerrar_ventana_info()
+			get_viewport().set_input_as_handled()
+		return
+	if bloqueado and not abierto:
+		return
 	if event.is_action_pressed(ACCION_INVENTARIO):
 		alternar()
 		get_viewport().set_input_as_handled()
@@ -170,7 +412,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if abierto:
+	if is_instance_valid(_equipada_pivote):
+		_equipada_pivote.rotate_y(delta * 1.5)
+	if abierto or _ventana_info_abierta:
 		for p in _previews:
 			if is_instance_valid(p):
 				p.rotate_y(delta * 1.2)
@@ -224,17 +468,50 @@ func _construir_hud() -> void:
 	_aviso_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_aviso_panel.hide()
 	arriba.add_child(_aviso_panel)
-	_aviso_label = _label("", 28)
+	_aviso_label = _label("", 24)
+	_aviso_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_aviso_label.custom_minimum_size.x = 560
 	_aviso_panel.add_child(_aviso_label)
 
-	# Herramienta equipada (arriba a la derecha)
-	_equipada_label = _label("", 22)
-	_equipada_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_equipada_label.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	_equipada_label.grow_horizontal = Control.GROW_DIRECTION_BEGIN
-	_equipada_label.position += Vector2(-16, 110)
-	_equipada_label.modulate = Color(0.6, 0.95, 1.0)
-	_capa.add_child(_equipada_label)
+	# Herramienta equipada (abajo a la derecha, girando)
+	_equipada_panel = PanelContainer.new()
+	_equipada_panel.add_theme_stylebox_override("panel", _estilo_panel(0.75))
+	_equipada_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_equipada_panel.anchor_left = 1.0
+	_equipada_panel.anchor_top = 1.0
+	_equipada_panel.anchor_right = 1.0
+	_equipada_panel.anchor_bottom = 1.0
+	_equipada_panel.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	_equipada_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	_equipada_panel.offset_right = -16
+	_equipada_panel.offset_bottom = -16
+	_equipada_panel.hide()
+	_capa.add_child(_equipada_panel)
+	var fila := HBoxContainer.new()
+	fila.add_theme_constant_override("separation", 12)
+	fila.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_equipada_panel.add_child(fila)
+	_equipada_vista = SubViewportContainer.new()
+	_equipada_vista.stretch = true
+	_equipada_vista.custom_minimum_size = Vector2(130, 130)
+	_equipada_vista.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fila.add_child(_equipada_vista)
+	var textos := VBoxContainer.new()
+	textos.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	textos.alignment = BoxContainer.ALIGNMENT_CENTER
+	fila.add_child(textos)
+	var titulo := _label("EQUIPPED", 16)
+	titulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	titulo.modulate = Color(0.0, 0.85, 1.0)
+	textos.add_child(titulo)
+	_equipada_nombre = _label("", 26)
+	_equipada_nombre.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	textos.add_child(_equipada_nombre)
+	_equipada_detalle = _label("", 16)
+	_equipada_detalle.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	_equipada_detalle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_equipada_detalle.custom_minimum_size.x = 280
+	textos.add_child(_equipada_detalle)
 
 	# Ventana de inventario
 	_ventana = Control.new()
@@ -254,13 +531,16 @@ func _construir_hud() -> void:
 	var vbox := VBoxContainer.new()
 	vbox.add_theme_constant_override("separation", 12)
 	panel.add_child(vbox)
-	vbox.add_child(_label("INVENTARIO", 40))
+	vbox.add_child(_label("INVENTORY", 36))
 	_grid = GridContainer.new()
 	_grid.columns = 4
 	_grid.add_theme_constant_override("h_separation", 10)
 	_grid.add_theme_constant_override("v_separation", 10)
 	vbox.add_child(_grid)
-	_info_label = _label("", 22)
+	_info_label = _label("", 20)
+	_info_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_info_label.custom_minimum_size = Vector2(620, 110)
+	_info_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	vbox.add_child(_info_label)
 
 
@@ -275,20 +555,21 @@ func _refrescar_ventana() -> void:
 		_grid.add_child(_crear_slot(id, vistos[id]))
 	for i in range(maxi(0, 4 - vistos.size())):
 		_grid.add_child(_crear_slot("", 0))
-	_info_label.text = "Clic en una herramienta para equiparla\n[%s] Cerrar" % tecla_de(ACCION_INVENTARIO)
+	_info_label.text = _texto_ayuda_inventario()
 
 
 func _crear_slot(id: String, cantidad: int) -> Control:
 	var boton := Button.new()
-	boton.custom_minimum_size = Vector2(150, 170)
+	boton.custom_minimum_size = Vector2(140, 160)
 	boton.toggle_mode = true
 	boton.focus_mode = Control.FOCUS_NONE
 	if id == "":
 		boton.disabled = true
 		return boton
 	boton.button_pressed = id == equipada
-	boton.tooltip_text = nombre_de(id)
 	boton.pressed.connect(_on_slot_pressed.bind(id))
+	boton.mouse_entered.connect(_mostrar_info_item.bind(id))
+	boton.mouse_exited.connect(func(): _info_label.text = _texto_ayuda_inventario())
 
 	var vbox := VBoxContainer.new()
 	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -297,27 +578,28 @@ func _crear_slot(id: String, cantidad: int) -> Control:
 
 	var contenedor := SubViewportContainer.new()
 	contenedor.stretch = true
-	contenedor.custom_minimum_size = Vector2(150, 120)
+	contenedor.custom_minimum_size = Vector2(140, 110)
 	contenedor.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	vbox.add_child(contenedor)
-	contenedor.add_child(_crear_preview(id))
+	contenedor.add_child(crear_preview(id))
 
 	var texto := nombre_de(id)
 	if cantidad > 1:
 		texto += " x%d" % cantidad
 	if id == equipada:
-		texto += "\n(equipado)"
+		texto += "\n(equipped)"
 	var l := _label(texto, 20)
 	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	vbox.add_child(l)
 	return boton
 
 
-func _crear_preview(id: String) -> SubViewport:
+## SubViewport con el modelo 3D del objeto (para íconos y fichas).
+func crear_preview(id: String, tam := Vector2i(150, 120)) -> SubViewport:
 	var vp := SubViewport.new()
 	vp.own_world_3d = true
 	vp.transparent_bg = true
-	vp.size = Vector2i(150, 120)
+	vp.size = tam
 	var pivote := Node3D.new()
 	vp.add_child(pivote)
 	var ruta := modelo_de(id)
@@ -345,14 +627,40 @@ func _crear_preview(id: String) -> SubViewport:
 	return vp
 
 
+func _actualizar_equipada() -> void:
+	for c in _equipada_vista.get_children():
+		c.queue_free()
+	_equipada_pivote = null
+	if equipada == "":
+		_equipada_panel.hide()
+		return
+	var vp := crear_preview(equipada, Vector2i(130, 130))
+	_equipada_pivote = vp.get_child(0)
+	_previews.erase(_equipada_pivote)
+	_equipada_vista.add_child(vp)
+	_equipada_nombre.text = nombre_de(equipada)
+	_equipada_detalle.text = "%s\n[%s] Use   [%s] Inventory" % [
+		descripcion_de(equipada), tecla_de(ACCION_USAR), tecla_de(ACCION_INVENTARIO)]
+	_equipada_panel.show()
+
+
+func _mostrar_info_item(id: String) -> void:
+	var extra := "\n(click to equip)" if es_herramienta(id) else ""
+	_info_label.text = "%s\n%s%s" % [nombre_de(id), descripcion_de(id), extra]
+
+
+func _texto_ayuda_inventario() -> String:
+	return "Hover over an item to see its information\nClick a tool to equip it - [%s] Close" % tecla_de(ACCION_INVENTARIO)
+
+
 func _on_slot_pressed(id: String) -> void:
 	if not es_herramienta(id):
-		mostrar_aviso("%s no es una herramienta" % nombre_de(id), 2.0)
+		mostrar_aviso("%s is not a tool" % nombre_de(id), 2.0)
 	elif equipada == id:
 		equipar("")
 	else:
 		equipar(id)
-		mostrar_aviso("%s equipada" % nombre_de(id), 1.5)
+		mostrar_aviso("%s equipped" % nombre_de(id), 1.5)
 	_refrescar_ventana()
 
 

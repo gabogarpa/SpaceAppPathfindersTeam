@@ -1,0 +1,108 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/zona_obstaculos.gd" id="1_z"]
+[ext_resource type="PackedScene" path="res://Escenas/Interactuables/snap27.tscn" id="2_premio"]
+[ext_resource type="PackedScene" path="res://Models/Objetos/SNAP27_ALSEP_Voxel.glb" id="3_snap"]
+[ext_resource type="PackedScene" path="res://Models/Objetos/Rocas_Lunares_Voxel.glb" id="4_rocas"]
+
+[sub_resource type="FastNoiseLite" id="Noise_p"]
+frequency = 0.06
+
+[sub_resource type="Gradient" id="Grad_p"]
+colors = PackedColorArray(0.8, 0.8, 0.8, 1, 1, 1, 1, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTex_p"]
+width = 64
+height = 64
+seamless = true
+color_ramp = SubResource("Grad_p")
+noise = SubResource("Noise_p")
+
+[sub_resource type="StandardMaterial3D" id="Mat_polvo"]
+albedo_color = Color(0.6, 0.59, 0.56, 1)
+albedo_texture = SubResource("NoiseTex_p")
+roughness = 1.0
+specular_mode = 2
+texture_filter = 0
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_grano"]
+material = SubResource("Mat_polvo")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_roca"]
+albedo_color = Color(0.42, 0.41, 0.4, 1)
+albedo_texture = SubResource("NoiseTex_p")
+roughness = 1.0
+specular_mode = 2
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="Mesh_roca"]
+material = SubResource("Mat_roca")
+radius = 0.5
+height = 1.0
+radial_segments = 7
+rings = 4
+
+[sub_resource type="CylinderShape3D" id="Shape_zona"]
+height = 4.0
+radius = 3.4
+
+[node name="RocasSNAP27" type="Area3D" groups=["objeto_clave"]]
+script = ExtResource("1_z")
+premio_escena = ExtResource("2_premio")
+altura_premio = 1.5
+mensaje = "Something is shining between the rocks\nUse the robotic arm"
+guia = "snap"
+
+[node name="PiezaOculta" parent="." instance=ExtResource("3_snap")]
+transform = Transform3D(0.433, 0, -0.25, 0, 0.5, 0, 0.25, 0, 0.433, 0.05, 0, 0)
+
+[node name="Obstaculos" type="Node3D" parent="."]
+
+[node name="Roca0" parent="Obstaculos" instance=ExtResource("4_rocas")]
+transform = Transform3D(0.9397, 0, -0.342, 0, 1, 0, 0.342, 0, 0.9397, 0.9, 0, 0.3)
+
+[node name="Roca1" parent="Obstaculos" instance=ExtResource("4_rocas")]
+transform = Transform3D(-1.034, 0, -0.3762, 0, 1.1, 0, 0.3762, 0, -1.034, -0.9, 0, -0.2)
+
+[node name="Roca2" parent="Obstaculos" instance=ExtResource("4_rocas")]
+transform = Transform3D(-0.07844, 0, -0.8966, 0, 0.9, 0, 0.8966, 0, -0.07844, 0.1, 0, 1)
+
+[node name="Roca3" parent="Obstaculos" instance=ExtResource("4_rocas")]
+transform = Transform3D(0.1736, 0, 0.9848, 0, 1, 0, -0.9848, 0, 0.1736, 0, 0, -1)
+
+[node name="Roca4" parent="Obstaculos" instance=ExtResource("4_rocas")]
+transform = Transform3D(0.6417, 0.07768, -0.6263, 0.03277, 0.8878, 0.1437, 0.6302, -0.1253, 0.6302, 0.2, 0.55, 0.1)
+
+[node name="Pedrusco0" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(1.26, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.7, 0.45, -0.7)
+mesh = SubResource("Mesh_roca")
+
+[node name="Pedrusco1" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(0.7354, 0, -0.6171, 0, 0.8, 0, 0.5142, 0, 0.6128, -0.8, 0.45, 0.8)
+mesh = SubResource("Mesh_roca")
+
+[node name="Pedrusco2" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(0.1216, 0, -0.6894, 0, 0.7, 0, 0.6894, 0, 0.1216, -0.3, 0.95, -0.1)
+mesh = SubResource("Mesh_roca")
+
+[node name="Particulas" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+emitting = false
+amount = 50
+lifetime = 0.9
+mesh = SubResource("BoxMesh_grano")
+emission_shape = 3
+emission_box_extents = Vector3(1.2, 0.1, 1.2)
+direction = Vector3(0, 1, 0)
+spread = 60.0
+gravity = Vector3(0, -1.62, 0)
+initial_velocity_min = 1.5
+initial_velocity_max = 3.5
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("Shape_zona")

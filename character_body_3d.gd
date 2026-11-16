@@ -17,6 +17,8 @@ const VOLUMEN_SUELO_DB: float = 0.0   # Volumen normal rodando en el suelo
 const VOLUMEN_AIRE_DB: float = -5.0  # Volumen reducido durante el salto
 
 var can_jump: bool = false
+## false = el robot no responde al teclado (p. ej. durante el texto de introduccion).
+var puede_moverse: bool = true
 
 var turn_input: float = 0.0
 var walk_input: float = 0.0
@@ -32,6 +34,10 @@ func _ready() -> void:
 	safe_margin = 0.04
 
 func _process(_delta: float) -> void:
+	if not puede_moverse:
+		turn_input = 0.0
+		walk_input = 0.0
+		return
 	var right = Input.get_action_strength("ui_right")
 	var left = Input.get_action_strength("ui_left")
 	turn_input = right - left

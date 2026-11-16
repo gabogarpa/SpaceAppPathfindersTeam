@@ -42,10 +42,15 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	_activo = false
 	Inventario.agregar(item_id)
-	Inventario.mostrar_aviso("Obtuviste: %s\n[%s] Abrir inventario" % [
-		Inventario.nombre_de(item_id), Inventario.tecla_de(Inventario.ACCION_INVENTARIO)], 3.0)
+	var robot := Inventario.robot_de(item_id)
+	Inventario.mostrar_aviso("You got: %s%s\n[%s] Open inventory" % [
+		Inventario.nombre_de(item_id), "\nRobot: %s" % robot if robot != "" else "",
+		Inventario.tecla_de(Inventario.ACCION_INVENTARIO)], 3.5)
 	recogido.emit(item_id)
 	queue_free()
+	Inventario.mostrar_ficha(item_id)
+	if item_id in Inventario.OBJETIVOS:
+		Inventario.completar_objetivo(item_id)
 
 
 func _es_jugador(body: Node) -> bool:
