@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://d3m12fhwcphaq"]
 
+[ext_resource type="Script" path="res://Scripts/robot_montaje.gd" id="9_rm"]
+[ext_resource type="Texture2D" path="res://Models/Robots/MISSION 03 THE FIRST FOOTPRINTS/Sojourner nasa.png" id="9_img"]
 [ext_resource type="PackedScene" uid="uid://trmsunxjmmde" path="res://Models/Robots/MISSION 03 THE FIRST FOOTPRINTS/Sojourner.glb" id="1_rgok4"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
-radius = 2.708398
+radius = 3.6
 
 [node name="Sojouner" type="Area3D" unique_id=675773011]
+script = ExtResource("9_rm")
+mensaje = "Sojourner rover - missing components"
+titulo = "SOJOURNER ROVER"
+slots = Array[Dictionary]([{"id": "rocker_bogie", "etiqueta": "CHASSIS", "pos": Vector2(0.36, 0.8)}, {"id": "apxs", "etiqueta": "REAR MOUNT", "pos": Vector2(0.15, 0.53)}])
+imagen = ExtResource("9_img")
 
 [node name="Sojourner" parent="." unique_id=482358036 instance=ExtResource("1_rgok4")]
 

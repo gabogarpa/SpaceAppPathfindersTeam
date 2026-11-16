@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://l6q10ud6qey1" path="res://Images/EngranajeChatarra.png" id="4_ttrw7"]
 [ext_resource type="Script" uid="uid://0wn0qo2nt7gb" path="res://popup_kit/draggable_item.gd" id="5_8oifo"]
 [ext_resource type="Texture2D" uid="uid://oc846oglppu6" path="res://Images/PlacaChatarra.png" id="6_3n5mk"]
+[ext_resource type="FontFile" uid="uid://be4orxrsbtfom" path="res://Fonts/UFO50Tall.ttf" id="8_font"]
 [ext_resource type="Texture2D" uid="uid://chgo3nhkiywmi" path="res://Images/TuboChatarra.png" id="7_738sn"]
 
 [node name="PuzzleChatarra" type="Control" unique_id=276555326]
@@ -86,3 +87,17 @@ lock_when_correct = true
 layout_mode = 2
 script = ExtResource("3_td17l")
 lock_when_correct = true
+
+[node name="Instrucciones" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 760.0
+offset_bottom = 130.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("8_font")
+theme_override_font_sizes/font_size = 24
+text = "HIGH-POWER MAGNET
+Drag the scrap off the Rocker-Bogie and drop it into the containers below.  [Esc] Close"
+horizontal_alignment = 1
+autowrap_mode = 3

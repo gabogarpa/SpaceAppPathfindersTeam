@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://b4g6dtvmum2an"]
 
+[ext_resource type="Script" path="res://Scripts/robot_montaje.gd" id="9_rm"]
+[ext_resource type="Texture2D" path="res://Models/Robots/MISSION 04 THE VERY LAST SIGNAL/Opportunity nasa science.png" id="9_img"]
 [ext_resource type="PackedScene" uid="uid://b103dmaohe58s" path="res://Models/Robots/MISSION 04 THE VERY LAST SIGNAL/Opportunity.glb" id="1_dosba"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
-radius = 3.7430184
+radius = 4.5
 
 [node name="Opportuniyu" type="Node3D" unique_id=1563865357]
 
 [node name="Area3D" type="Area3D" parent="." unique_id=2074512585]
+script = ExtResource("9_rm")
+mensaje = "Opportunity rover (MER-B) - missing components"
+titulo = "OPPORTUNITY ROVER (MER-B)"
+slots = Array[Dictionary]([{"id": "panel_solar_delta", "etiqueta": "UPPER DECK", "pos": Vector2(0.62, 0.56), "caja": Vector2(1.08, 0.5)}, {"id": "brazo_idd", "etiqueta": "FRONT MOUNT", "pos": Vector2(0.49, 0.69), "caja": Vector2(-0.08, 0.78)}, {"id": "mastil_pancam", "etiqueta": "FRONT NECK", "pos": Vector2(0.45, 0.36), "caja": Vector2(-0.08, 0.3)}])
+imagen = ExtResource("9_img")
 
 [node name="Opportunity" parent="Area3D" unique_id=1688569988 instance=ExtResource("1_dosba")]
 

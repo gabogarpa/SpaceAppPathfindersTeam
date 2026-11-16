@@ -1,0 +1,54 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/zona_obstaculos.gd" id="1_z"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_hielo"]
+transparency = 1
+albedo_color = Color(0.7, 0.9, 1, 0.8)
+metallic = 0.2
+roughness = 0.1
+emission_enabled = true
+emission = Color(0.3, 0.6, 0.9, 1)
+emission_energy_multiplier = 0.3
+
+[sub_resource type="CapsuleMesh" id="Mesh_capsula"]
+material = SubResource("Mat_hielo")
+
+[sub_resource type="StandardMaterial3D" id="Mat_ranura"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+emission_enabled = true
+emission = Color(1, 0.45, 0.1, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="BoxMesh" id="Mesh_ranura"]
+material = SubResource("Mat_ranura")
+size = Vector3(0.18, 0.5, 0.25)
+
+[sub_resource type="CylinderShape3D" id="Shape_zona"]
+height = 7.0
+radius = 4.6
+
+[node name="CapsulaCongelada" type="Area3D"]
+script = ExtResource("1_z")
+herramienta_requerida = "cartucho_rhu"
+mensaje = "Frozen capsule - sealed by ice"
+accion_texto = "Insert the heater cartridge into the side slot"
+ajustar_al_suelo = false
+es_objetivo = false
+duracion = 2.0
+modo = "derretir"
+consumir_herramienta = true
+aviso_final = "The ice melted! The capsule is unlocked"
+
+[node name="Obstaculos" type="Node3D" parent="."]
+
+[node name="Capsula" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(2.8199751, 1.0854089, -0.5427043, -0.7675001, 2.6586978, 1.3293489, 0.9399916, -1.0854089, 2.7135222, 0, 0, 0)
+mesh = SubResource("Mesh_capsula")
+
+[node name="Ranura" type="MeshInstance3D" parent="Obstaculos/Capsula"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("Mesh_ranura")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Shape_zona")

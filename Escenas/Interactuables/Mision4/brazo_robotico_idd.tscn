@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://dr1m0sgy74fk1"]
 
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="9_obj"]
 [ext_resource type="PackedScene" uid="uid://b6qiv5bjeqx" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/IDD Robotic Arm and RAT Tool (Opportunity).glb" id="1_jxvw3"]
 
-[node name="BrazoRoboticoIDD" type="Node3D" unique_id=1194214427]
+[sub_resource type="SphereShape3D" id="Shape_pieza"]
+radius = 2.4
+
+[node name="BrazoRoboticoIDD" type="Area3D" unique_id=1194214427]
+script = ExtResource("9_obj")
+item_id = "brazo_idd"
+velocidad_rotacion = 1.0
+altura_flotacion = 0.1
+mostrar_ficha = false
+bloqueado = true
+altura_liberar = 3.5
 
 [node name="IDD Robotic Arm and RAT Tool (Opportunity)" parent="." unique_id=1613126754 instance=ExtResource("1_jxvw3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+shape = SubResource("Shape_pieza")

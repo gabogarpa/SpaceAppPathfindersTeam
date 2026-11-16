@@ -1,7 +1,22 @@
 [gd_scene format=3 uid="uid://bkfmmvedgap58"]
 
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="9_obj"]
 [ext_resource type="PackedScene" uid="uid://e8bl5uenqm73" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Pancam Panoramic Mast (Opportunity).glb" id="1_ok5ld"]
 
-[node name="MastilPanoramico" type="Node3D" unique_id=258367259]
+[sub_resource type="SphereShape3D" id="Shape_pieza"]
+radius = 2.6
+
+[node name="MastilPanoramico" type="Area3D" unique_id=258367259]
+script = ExtResource("9_obj")
+item_id = "mastil_pancam"
+velocidad_rotacion = 1.0
+altura_flotacion = 0.1
+mostrar_ficha = false
+bloqueado = true
+altura_liberar = 1.5
 
 [node name="Pancam Panoramic Mast (Opportunity)" parent="." unique_id=136357590 instance=ExtResource("1_ok5ld")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("Shape_pieza")

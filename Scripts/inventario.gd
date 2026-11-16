@@ -6,6 +6,11 @@ extends Node
 signal item_agregado(id: String)
 signal herramienta_equipada(id: String)
 signal inventario_toggled(abierto: bool)
+signal objetivo_completado(id: String)
+## Se emite cuando se completan todos los objetivos de la misión actual.
+signal mision_completada
+## Se emite al cerrar la última ventana de información en cola.
+signal ventanas_info_cerradas
 
 const ACCION_INVENTARIO := "inventario"
 const ACCION_USAR := "usar_herramienta"
@@ -59,9 +64,100 @@ var ITEMS := {
 		"ficha_titulo": "ITEM 3 - SNAP-27 Thermoelectric Generator (Apollo 12)",
 		"ficha_texto": "The SNAP-27 was a radioisotope thermoelectric generator that provided the power needed to keep the ALSEP scientific station operating.\n\nIt used a plutonium-238 capsule that generated heat through radioactive decay. An array of 442 thermoelectric couples converted that heat directly into electricity.\n\nThe generator produced approximately 70 watts of direct current at 16 volts, supplying power to the scientific instruments at the central station.\n\nWithout this power supply system, the experiments would not have been able to continue operating on the lunar surface.",
 	},
+	# ------------------------------------------------ Marte - Mision 03 (Pathfinder / Sojourner)
+	"escobilla": {
+		"nombre": "Anti-Static Brush",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Anti-Static Brush.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Removes Martian dust from delicate surfaces without damaging them.",
+	},
+	"iman": {
+		"nombre": "High-Power Magnet",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Iman.obj",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Pulls away metal scrap that is trapping historic components.",
+	},
+	"cincel": {
+		"nombre": "Steel Chisel",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Steel Chisel.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Breaks apart rockfalls that bury historic components.",
+	},
+	"petalo_solar": {
+		"nombre": "Solar Panel Petal",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Solar Panel Petal (Mars Pathfinder).glb",
+		"herramienta": false,
+		"robot": "Mars Pathfinder (1997)",
+		"uso": "Install it on the side hinge of the Pathfinder lander.",
+		"ficha_titulo": "ITEM 1 - Solar Panel Petal (Mars Pathfinder)",
+		"ficha_texto": "Pathfinder had three triangular metal solar panels, known as petals, which unfolded after landing.\n\nTheir solar cells, with a total surface area of more than 2.5 square meters, supplied power to the lander in combination with rechargeable batteries.\n\nIn addition to powering its systems, Pathfinder used its equipment to observe Sojourner's operations and transmit its data to Earth.",
+	},
+	"rocker_bogie": {
+		"nombre": "Rocker-Bogie Wheel System",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Wheel System and Rocker-Bogie Suspension (Sojourner).glb",
+		"herramienta": false,
+		"robot": "Sojourner (1997)",
+		"uso": "Install it on the chassis of the Sojourner rover.",
+		"ficha_titulo": "ITEM 2 - Six-Wheel System and Rocker-Bogie Suspension (Sojourner)",
+		"ficha_texto": "Sojourner was a small six-wheeled vehicle equipped with a suspension system known as rocker-bogie.\n\nThis design was part of its mobility system and allowed it to travel across the Martian surface while exploring the rocks and terrain around Pathfinder.\n\nIts movements also provided information about soil properties through the study of its tracks and the behavior of its wheels.",
+	},
+	"apxs": {
+		"nombre": "APXS Spectrometer",
+		"modelo": "res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/APXS Spectrometer (Sojourner).glb",
+		"herramienta": false,
+		"robot": "Sojourner (1997)",
+		"uso": "Attach it to the rear mount of the Sojourner rover.",
+		"ficha_titulo": "ITEM 3 - APXS Spectrometer (Sojourner)",
+		"ficha_texto": "RECOVERED RECORD: APXS SPECTROMETER\n\nThe Alpha Particle X-ray Spectrometer (APXS) was one of Sojourner's scientific instruments.\n\nIts purpose was to analyze the composition of Martian rocks and soil, providing information about the materials present on the surface.\n\nImages of the analyzed samples were also transmitted to Earth to facilitate their study.\n\nThanks to this instrument, Sojourner could do more than travel across Mars: it could also investigate what the planet was made of.",
+	},
+	# ------------------------------------------------ Marte - Mision 04 (Opportunity)
+	"palanca": {
+		"nombre": "Metal Lever",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Metal Lever.glb",
+		"herramienta": true,
+		"robot": "SPARK (MoonBot) - Pathfinders",
+		"uso": "Forces open locked equipment boxes.",
+	},
+	"cartucho_rhu": {
+		"nombre": "RHU Heater Cartridge",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/RHU_Heater_Cartridge_Voxel.glb",
+		"herramienta": true,
+		"robot": "Radioisotope Heater Unit",
+		"uso": "Gives off heat. Insert it into the side slot of the frozen capsule to unlock it.",
+	},
+	"panel_solar_delta": {
+		"nombre": "Solar Panel Array",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Solar Panel Array (Opportunity).glb",
+		"herramienta": false,
+		"robot": "Opportunity - MER-B (2004)",
+		"uso": "Attach it to the upper deck of Opportunity.",
+		"ficha_titulo": "ITEM 1 - Solar Panel Array (Opportunity)",
+		"ficha_texto": "Opportunity used an array of solar panels distributed across its upper deck, extending out to the sides like a pair of wings.\n\nUnder full sunlight, they could generate up to 140 watts of power. This electricity was stored in two rechargeable batteries to power the rover's systems.\n\nTheir operation was essential for keeping the electronic equipment and scientific instruments active during the exploration of Mars.",
+	},
+	"brazo_idd": {
+		"nombre": "IDD Robotic Arm",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/IDD Robotic Arm and RAT Tool (Opportunity).glb",
+		"herramienta": false,
+		"robot": "Opportunity - MER-B (2004)",
+		"uso": "Install it on the front mount of Opportunity.",
+		"ficha_titulo": "ITEM 2 - IDD Robotic Arm and RAT Tool (Opportunity)",
+		"ficha_texto": "The Instrument Deployment Device (IDD) was an articulated arm located at the front of the rover.\n\nVarious scientific instruments were mounted at its end, including the APXS spectrometer, the Mössbauer spectrometer, the microscopic imager, and the Rock Abrasion Tool (RAT).\n\nThis system made it possible to bring the instruments close to materials of interest and conduct investigations directly on Martian rocks and soil.",
+	},
+	"mastil_pancam": {
+		"nombre": "Pancam Mast",
+		"modelo": "res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Pancam Panoramic Mast (Opportunity).glb",
+		"herramienta": false,
+		"robot": "Opportunity - MER-B (2004)",
+		"uso": "Fit it into the vertical front neck of Opportunity.",
+		"ficha_titulo": "ITEM 3 - Pancam Panoramic Mast (Opportunity)",
+		"ficha_texto": "The Pancam mast was located on top of the rover and supported the panoramic and navigation cameras.\n\nPositioned approximately 1.4 meters above the wheel base, these cameras made it possible to capture images of the surroundings and document the places explored.\n\nThe mast also served as a periscope for the Miniature Thermal Emission Spectrometer (Mini-TES), another of the rover's scientific instruments.",
+	},
 }
 
-## Objetivos de la misión. Al completarlos todos se abre el archivo histórico.
+## Objetivos de la misión de la Luna. Al completarlos todos se abre el archivo histórico.
 const OBJETIVOS := ["brazo_robotico", "camara", "estacion"]
 
 const ARCHIVO_TITULO := "HISTORICAL ARCHIVE UNLOCKED"
@@ -121,9 +217,14 @@ var _prev_mouse_mode := Input.MOUSE_MODE_VISIBLE
 var _prev_paused := false
 var _aviso_id := 0
 var objetivos_completados: Array[String] = []
+## Objetivos de la misión actual (por defecto, los de la Luna).
+var objetivos: Array = OBJETIVOS.duplicate()
+## true = al completar los objetivos se abre solo el archivo histórico de la Luna.
+var archivo_automatico := true
 var _cola_ventanas: Array[Dictionary] = []
 var _ventana_info: Control
 var _ventana_info_abierta := false
+var _abriendo_ventana := false
 var _pausa_previa_info := false
 var _mouse_previo_info := Input.MOUSE_MODE_VISIBLE
 
@@ -269,26 +370,52 @@ func alternar() -> void:
 # ---------------------------------------------------------------- Fichas / misión
 
 ## Muestra la ventana de información de una pieza (objeto + texto a un lado).
-func mostrar_ficha(id: String) -> void:
+func mostrar_ficha(id: String, encabezado := "PIECE RECOVERED") -> void:
 	if not tiene_ficha(id):
 		return
 	var item: Dictionary = ITEMS[id]
-	mostrar_ventana_info("PIECE RECOVERED", item.ficha_titulo, item.ficha_texto, id)
+	mostrar_ventana_info(encabezado, item.ficha_titulo, item.ficha_texto, id)
 
 
 func completar_objetivo(id: String) -> void:
 	if objetivos_completados.has(id):
 		return
 	objetivos_completados.append(id)
-	if OBJETIVOS.all(func(o): return objetivos_completados.has(o)):
-		mostrar_ventana_info(ARCHIVO_TITULO, ARCHIVO_SUBTITULO, ARCHIVO_TEXTO, "")
+	objetivo_completado.emit(id)
+	if objetivos.all(func(o): return objetivos_completados.has(o)):
+		if archivo_automatico:
+			mostrar_ventana_info(ARCHIVO_TITULO, ARCHIVO_SUBTITULO, ARCHIVO_TEXTO, "")
+		mision_completada.emit()
+
+
+## Empieza una misión nueva con sus propios objetivos.
+## archivo = false: el nivel se encarga de mostrar su archivo histórico.
+func iniciar_mision(ids: Array, archivo := false) -> void:
+	objetivos = ids.duplicate()
+	objetivos_completados.clear()
+	archivo_automatico = archivo
+
+
+## Vacía el inventario (al cambiar de nivel o de misión).
+func reiniciar() -> void:
+	if abierto:
+		cerrar()
+	items.clear()
+	equipar("")
+	ocultar_aviso()
+
+
+## Espera a que no quede ninguna ventana de información abierta ni en cola.
+func esperar_ventanas_info() -> void:
+	while _ventana_info_abierta or _abriendo_ventana or not _cola_ventanas.is_empty():
+		await ventanas_info_cerradas
 
 
 ## Ventana con un modelo 3D girando a la izquierda y texto a la derecha.
 ## Si ya hay una abierta, se pone en cola.
 func mostrar_ventana_info(encabezado: String, titulo: String, texto: String, id_modelo: String) -> void:
 	_cola_ventanas.append({"encabezado": encabezado, "titulo": titulo, "texto": texto, "id": id_modelo})
-	if not _ventana_info_abierta:
+	if not _ventana_info_abierta and not _abriendo_ventana:
 		_abrir_siguiente_ventana()
 
 
@@ -299,12 +426,16 @@ func ventana_info_abierta() -> bool:
 func _abrir_siguiente_ventana() -> void:
 	if _cola_ventanas.is_empty():
 		return
+	_abriendo_ventana = true
 	var popups := get_node_or_null("/root/PopupManager")
 	if popups and popups.has_method("is_open") and popups.is_open():
 		await popups.popup_closed
+		# PopupManager quita la pausa justo después de emitir popup_closed.
+		await get_tree().process_frame
 	if abierto:
 		cerrar()
 	var datos: Dictionary = _cola_ventanas.pop_front()
+	_abriendo_ventana = false
 	_ventana_info_abierta = true
 	_pausa_previa_info = get_tree().paused
 	_mouse_previo_info = Input.mouse_mode
@@ -327,6 +458,8 @@ func _cerrar_ventana_info() -> void:
 	_equipada_panel.visible = equipada != ""
 	if not _cola_ventanas.is_empty():
 		_abrir_siguiente_ventana.call_deferred()
+	else:
+		ventanas_info_cerradas.emit()
 
 
 func _construir_ventana_info(datos: Dictionary) -> void:
@@ -602,10 +735,9 @@ func crear_preview(id: String, tam := Vector2i(150, 120)) -> SubViewport:
 	vp.size = tam
 	var pivote := Node3D.new()
 	vp.add_child(pivote)
-	var ruta := modelo_de(id)
 	var radio := 1.0
-	if ruta != "" and ResourceLoader.exists(ruta):
-		var modelo: Node3D = load(ruta).instantiate()
+	var modelo := instanciar_modelo(id)
+	if modelo:
 		pivote.add_child(modelo)
 		var caja := calcular_aabb(modelo)
 		modelo.position = -caja.get_center()
@@ -662,6 +794,23 @@ func _on_slot_pressed(id: String) -> void:
 		equipar(id)
 		mostrar_aviso("%s equipped" % nombre_de(id), 1.5)
 	_refrescar_ventana()
+
+
+## Instancia el modelo 3D de un objeto (escena .glb/.tscn o malla .obj). null si no tiene.
+func instanciar_modelo(id: String) -> Node3D:
+	var ruta := modelo_de(id)
+	if ruta == "" or not ResourceLoader.exists(ruta):
+		return null
+	var recurso := load(ruta)
+	if recurso is PackedScene:
+		return recurso.instantiate()
+	if recurso is Mesh:
+		var raiz := Node3D.new()
+		var malla := MeshInstance3D.new()
+		malla.mesh = recurso
+		raiz.add_child(malla)
+		return raiz
+	return null
 
 
 ## AABB de todas las mallas de un nodo, en el espacio local de ese nodo.

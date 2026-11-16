@@ -1,19 +1,23 @@
 [gd_scene format=3 uid="uid://bohiqxfadoys8"]
 
+[ext_resource type="Script" path="res://Scripts/balizas_telemetria.gd" id="9_bt"]
+[ext_resource type="Script" path="res://Scripts/baliza.gd" id="9_bz"]
 [ext_resource type="PackedScene" uid="uid://clkdtvv7ibx2m" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Telemetry Beacon.glb" id="1_otmkp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
-radius = 5.3676896
+radius = 2.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fr1is"]
-radius = 5.4769025
+radius = 2.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xgul3"]
-radius = 5.5853043
+radius = 2.6
 
 [node name="TelemetryBeacons" type="Node3D" unique_id=165286010]
+script = ExtResource("9_bt")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1442036468]
+script = ExtResource("9_bz")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.6441345)
 
 [node name="Telemetry Beacon" parent="Area3D" unique_id=2033096335 instance=ExtResource("1_otmkp")]
@@ -22,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.6441345)
 shape = SubResource("SphereShape3D_0emdt")
 
 [node name="Area3D2" type="Area3D" parent="." unique_id=689446375]
+script = ExtResource("9_bz")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.7670236)
 
 [node name="Telemetry Beacon2" parent="Area3D2" unique_id=175459050 instance=ExtResource("1_otmkp")]
@@ -30,6 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.7670236)
 shape = SubResource("SphereShape3D_fr1is")
 
 [node name="Area3D3" type="Area3D" parent="." unique_id=414593873]
+script = ExtResource("9_bz")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.395307, 0, 0)
 
 [node name="Telemetry Beacon3" parent="Area3D3" unique_id=1523519213 instance=ExtResource("1_otmkp")]

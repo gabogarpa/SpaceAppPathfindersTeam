@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://xxdolgrunebi"]
 
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="9_obj"]
 [ext_resource type="ArrayMesh" uid="uid://bk3g5hhlg5fvv" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Iman.obj" id="1_voss1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 0.9952706
 
 [node name="Iman" type="Area3D" unique_id=1503137034]
+script = ExtResource("9_obj")
+item_id = "iman"
+velocidad_rotacion = 1.5
+altura_flotacion = 0.1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=624288275]
 mesh = ExtResource("1_voss1")

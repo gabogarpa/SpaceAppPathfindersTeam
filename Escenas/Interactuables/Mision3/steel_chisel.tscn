@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://djjixfxmwlsmf"]
 
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="9_obj"]
 [ext_resource type="PackedScene" uid="uid://h0a0hp0uja64" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Steel Chisel.glb" id="1_fhm1n"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 2.4901295
 
 [node name="SteelChisel" type="Area3D" unique_id=323391021]
+script = ExtResource("9_obj")
+item_id = "cincel"
+velocidad_rotacion = 1.5
+altura_flotacion = 0.1
 
 [node name="Steel Chisel" parent="." unique_id=682493451 instance=ExtResource("1_fhm1n")]
 

@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/viaje_marte.gd" id="1_vm"]
+[ext_resource type="PackedScene" uid="uid://h5fnmv72owna" path="res://Escenas/viajando.tscn" id="2_vj"]
+[ext_resource type="PackedScene" uid="uid://c8e5526d660ch" path="res://Escenas/caja_texto.tscn" id="3_ct"]
+
+[node name="ViajeMarte" type="Node3D"]
+script = ExtResource("1_vm")
+
+[node name="Viajando" parent="." instance=ExtResource("2_vj")]
+
+[node name="CajaTexto" parent="." instance=ExtResource("3_ct")]
