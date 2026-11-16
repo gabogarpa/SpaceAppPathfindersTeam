@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dndsqtyvtt7te"]
 
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="9_obj"]
 [ext_resource type="PackedScene" uid="uid://d23mynjom6dg6" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Metal Lever.glb" id="1_uooua"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
@@ -8,6 +9,10 @@ radius = 2.6247127
 [node name="Palanca" type="Node3D" unique_id=127734814]
 
 [node name="Area3D" type="Area3D" parent="." unique_id=596612587]
+script = ExtResource("9_obj")
+item_id = "palanca"
+velocidad_rotacion = 1.5
+altura_flotacion = 0.1
 
 [node name="Metal Lever" parent="Area3D" unique_id=1514904402 instance=ExtResource("1_uooua")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 2, 0)

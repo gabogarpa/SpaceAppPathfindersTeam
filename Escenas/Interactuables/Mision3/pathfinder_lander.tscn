@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://bxs6qyq0jeyom"]
 
+[ext_resource type="Script" path="res://Scripts/robot_montaje.gd" id="9_rm"]
+[ext_resource type="Texture2D" path="res://Models/Robots/MISSION 03 THE FIRST FOOTPRINTS/pathfinder lander nssdc nasa.png" id="9_img"]
 [ext_resource type="PackedScene" uid="uid://dmdywvali8qwn" path="res://Models/Robots/MISSION 03 THE FIRST FOOTPRINTS/Pathfinder Lander.glb" id="1_vkk3e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
-radius = 3.8248448
+radius = 5.0
 
 [node name="PathfinderLander" type="Area3D" unique_id=1935735213]
+script = ExtResource("9_rm")
+mensaje = "Mars Pathfinder lander - one solar petal is missing"
+titulo = "MARS PATHFINDER LANDER"
+slots = Array[Dictionary]([{"id": "petalo_solar", "etiqueta": "SIDE HINGE", "pos": Vector2(0.7, 0.58)}])
+imagen = ExtResource("9_img")
 
 [node name="Pathfinder Lander" parent="." unique_id=1616307418 instance=ExtResource("1_vkk3e")]
 

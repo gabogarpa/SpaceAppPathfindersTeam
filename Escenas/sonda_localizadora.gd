@@ -74,6 +74,10 @@ func _paso_actual() -> String:
 
 
 func _objetivo_guiado() -> Node3D:
+	# Niveles con su propia guia (p. ej. Marte) devuelven los objetivos posibles.
+	var escena := get_tree().current_scene
+	if escena and escena.has_method("objetivos_guia"):
+		return _mas_cercano(escena.objetivos_guia())
 	var paso := _paso_actual()
 	if paso == "":
 		return null
@@ -81,6 +85,17 @@ func _objetivo_guiado() -> Node3D:
 		if is_instance_valid(n) and n is Node3D:
 			return n
 	return null
+
+func _mas_cercano(nodos: Array) -> Node3D:
+	var mejor: Node3D = null
+	var distancia := INF
+	for n in nodos:
+		if is_instance_valid(n) and n is Node3D and n.is_inside_tree():
+			var d := global_position.distance_squared_to(n.global_position)
+			if d < distancia:
+				distancia = d
+				mejor = n
+	return mejor
 
 func _lanzar_pulso(factor_cercania: float) -> void:
 	onda_visual.show()

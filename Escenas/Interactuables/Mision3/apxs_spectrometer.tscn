@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://dj1agxliolh00"]
 
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="9_obj"]
 [ext_resource type="PackedScene" uid="uid://c7dg44p8eun7a" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/APXS Spectrometer (Sojourner).glb" id="1_fu5k5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 2.469395
 
 [node name="APXS Spectrometer" type="Area3D" unique_id=478896075]
+script = ExtResource("9_obj")
+item_id = "apxs"
+velocidad_rotacion = 1.0
+altura_flotacion = 0.1
+mostrar_ficha = false
+bloqueado = true
+altura_liberar = 1.0
 
 [node name="APXS Spectrometer (Sojourner)" parent="." unique_id=2005334329 instance=ExtResource("1_fu5k5")]
 

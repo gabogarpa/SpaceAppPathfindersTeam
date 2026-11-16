@@ -127,8 +127,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Anima la herramienta junto a la zona. Devuelve una señal para hacer `await`.
 func animar_herramienta(id: String, duracion: float) -> Signal:
-	var ruta: String = Inventario.modelo_de(id)
-	if ruta == "" or not ResourceLoader.exists(ruta):
+	var modelo: Node3D = Inventario.instanciar_modelo(id)
+	if modelo == null:
 		return get_tree().create_timer(duracion).timeout
 	var pivote := Node3D.new()
 	add_child(pivote)
@@ -138,7 +138,6 @@ func animar_herramienta(id: String, duracion: float) -> Signal:
 		d.y = 0.0
 		if d.length() > 0.1:
 			lado = d.normalized()
-	var modelo: Node3D = load(ruta).instantiate()
 	pivote.add_child(modelo)
 	var t := create_tween()
 	if id == "brazo_robotico":
@@ -156,7 +155,10 @@ func animar_herramienta(id: String, duracion: float) -> Signal:
 	else:
 		pivote.global_position = global_position + lado * 0.9 + Vector3.UP * 0.2
 		pivote.look_at(global_position + Vector3.UP * 0.2, Vector3.UP)
-		modelo.scale = Vector3.ONE * 0.6
+		var caja := Inventario.calcular_aabb(modelo)
+		var mayor := maxf(caja.size.x, maxf(caja.size.y, caja.size.z))
+		# Las herramientas de Marte tienen tamaños distintos: se ajustan a ~1.4 m.
+		modelo.scale = Vector3.ONE * (0.6 if id == "escoba" or mayor <= 0.0 else 1.4 / mayor)
 		modelo.rotation_degrees.x = -35
 		var paso := duracion / 8.0
 		for i in 4:

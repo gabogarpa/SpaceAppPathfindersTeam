@@ -1,0 +1,82 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/zona_obstaculos.gd" id="1_z"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_rojo"]
+albedo_color = Color(0.55, 0, 0, 1)
+metallic = 0.4
+roughness = 0.6
+
+[sub_resource type="StandardMaterial3D" id="Mat_cerradura"]
+albedo_color = Color(0.85, 0.75, 0.2, 1)
+metallic = 0.9
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="Box_cerradura"]
+material = SubResource("Mat_cerradura")
+size = Vector3(0.6, 0.5, 0.15)
+
+[sub_resource type="BoxMesh" id="Box_Tapa"]
+material = SubResource("Mat_rojo")
+size = Vector3(6.280, 0.120, 4.250)
+
+[sub_resource type="BoxMesh" id="Box_Frente"]
+material = SubResource("Mat_rojo")
+size = Vector3(6.280, 3.160, 0.120)
+
+[sub_resource type="BoxMesh" id="Box_Fondo"]
+material = SubResource("Mat_rojo")
+size = Vector3(6.280, 3.160, 0.120)
+
+[sub_resource type="BoxMesh" id="Box_LadoIzq"]
+material = SubResource("Mat_rojo")
+size = Vector3(0.120, 3.160, 4.010)
+
+[sub_resource type="BoxMesh" id="Box_LadoDer"]
+material = SubResource("Mat_rojo")
+size = Vector3(0.120, 3.160, 4.010)
+
+[sub_resource type="CylinderShape3D" id="Shape_zona"]
+height = 5.0
+radius = 5.2
+
+[node name="CajaEquipo" type="Area3D"]
+script = ExtResource("1_z")
+herramienta_requerida = "palanca"
+mensaje = "Red equipment box - locked"
+accion_texto = "Force the box open with the metal lever"
+ajustar_al_suelo = false
+es_objetivo = false
+duracion = 1.4
+distancia_apartar = 3.2
+aviso_final = "The box is open!"
+
+[node name="Obstaculos" type="Node3D" parent="."]
+
+[node name="Tapa" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000, 3.220, 0.000)
+mesh = SubResource("Box_Tapa")
+
+[node name="Frente" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000, 1.580, 2.065)
+mesh = SubResource("Box_Frente")
+
+[node name="Fondo" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000, 1.580, -2.065)
+mesh = SubResource("Box_Fondo")
+
+[node name="LadoIzq" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.080, 1.580, 0.000)
+mesh = SubResource("Box_LadoIzq")
+
+[node name="LadoDer" type="MeshInstance3D" parent="Obstaculos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.080, 1.580, 0.000)
+mesh = SubResource("Box_LadoDer")
+
+[node name="Cerradura" type="MeshInstance3D" parent="Obstaculos/Frente"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.140, 0.1)
+mesh = SubResource("Box_cerradura")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("Shape_zona")

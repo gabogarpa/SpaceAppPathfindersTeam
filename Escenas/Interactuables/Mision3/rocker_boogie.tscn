@@ -1,27 +1,48 @@
 [gd_scene format=3 uid="uid://cc35gd1g1ii6r"]
 
-[ext_resource type="Script" uid="uid://dpe7qddve35r5" path="res://Escenas/Interactuables/Mision3/rocker_boogie.gd" id="1_7uxwx"]
+[ext_resource type="Script" path="res://Scripts/zona_puzzle.gd" id="1_7uxwx"]
 [ext_resource type="PackedScene" uid="uid://b80qkyqiea8je" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/Wheel System and Rocker-Bogie Suspension (Sojourner).glb" id="1_dt5yv"]
-[ext_resource type="Script" uid="uid://c1krn0a0cuc46" path="res://popup_kit/interactable_3d.gd" id="2_7wwac"]
+[ext_resource type="Script" uid="uid://c5wprlfbqafbg" path="res://Scripts/objeto_recogible.gd" id="2_obj"]
 [ext_resource type="PackedScene" uid="uid://c0mcsi0st1821" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/chatarra_marron.glb" id="3_7wwac"]
 [ext_resource type="PackedScene" uid="uid://cds62jl8wftt7" path="res://Escenas/Interactuables/Mision3/puzzle_chatarra.tscn" id="5_m1qk3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 3.599559
 
-[node name="RockerBoogie" type="Node3D" unique_id=833106143]
+[sub_resource type="SphereShape3D" id="Shape_pieza"]
+radius = 2.2
+
+[node name="RockerBoogie" type="Area3D" unique_id=833106143]
 script = ExtResource("1_7uxwx")
+popup_scene = ExtResource("5_m1qk3")
+pieza = NodePath("Pieza")
+aviso_final = "The scrap is gone! The wheel system is free"
+herramienta_requerida = "iman"
+mensaje = "Scrap metal is trapping the Rocker-Bogie wheel system"
+accion_texto = "Pull the scrap away with the magnet"
+ajustar_al_suelo = false
+es_objetivo = false
 
-[node name="Wheel System and Rocker-Bogie Suspension (Sojourner)" parent="." unique_id=966089271 instance=ExtResource("1_dt5yv")]
+[node name="Pieza" type="Area3D" parent="."]
+script = ExtResource("2_obj")
+item_id = "rocker_bogie"
+velocidad_rotacion = 1.0
+altura_flotacion = 0.1
+mostrar_ficha = false
+bloqueado = true
+altura_liberar = 1.0
 
-[node name="chatarra_marron" parent="." unique_id=1359082132 instance=ExtResource("3_7wwac")]
+[node name="Wheel System and Rocker-Bogie Suspension (Sojourner)" parent="Pieza" unique_id=966089271 instance=ExtResource("1_dt5yv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pieza"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("Shape_pieza")
+
+[node name="Obstaculos" type="Node3D" parent="."]
+
+[node name="chatarra_marron" parent="Obstaculos" unique_id=1359082132 instance=ExtResource("3_7wwac")]
 transform = Transform3D(1.585, 0, 0, 0, 1.585, 0, 0, 0, 1.585, 0, 1.0739285, 0)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=136448370]
-visible = false
-script = ExtResource("2_7wwac")
-popup_scene = ExtResource("5_m1qk3")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2120585056]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2120585056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62516665, 0)
 shape = SubResource("SphereShape3D_0emdt")
