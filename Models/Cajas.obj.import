@@ -9,6 +9,7 @@ path="res://.godot/imported/Cajas.obj-ff2a92e8dbd33ee8550b7d0184f6dcaa.mesh"
 [deps]
 
 files=["res://.godot/imported/Cajas.obj-ff2a92e8dbd33ee8550b7d0184f6dcaa.mesh"]
+
 source_file="res://Models/Cajas.obj"
 dest_files=["res://.godot/imported/Cajas.obj-ff2a92e8dbd33ee8550b7d0184f6dcaa.mesh", "res://.godot/imported/Cajas.obj-ff2a92e8dbd33ee8550b7d0184f6dcaa.mesh"]
 

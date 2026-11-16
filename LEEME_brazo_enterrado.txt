@@ -1,35 +1,55 @@
-MECANICA: BRAZO ROBOTICO ENTERRADO + ESCOBA
-===========================================
+MISION: 3 PIEZAS HISTORICAS (Surveyor 3 / Apollo 12)
+====================================================
 
 Abrir: descomprime el zip y en Godot 4.7 usa Import > selecciona project.godot.
 La primera vez Godot reimporta los modelos (tarda un poco).
-
-Ya esta integrada en Escenas/NivelLuna.tscn (nodos "Escoba" y "ZonaPolvoLunar",
-justo frente al MoonBot). Para probar directo: abre NivelLuna.tscn y presiona F6.
+Prueba directa: abre Escenas/NivelLuna.tscn y presiona F6.
 
 TECLAS
 ------
-I = abrir/cerrar inventario      E = usar herramienta equipada
+I = abrir/cerrar inventario (clic en una herramienta para equiparla)
+E = usar la herramienta equipada / interactuar
+Enter = cerrar ventanas de informacion
 
-FLUJO
------
-- Toca la escoba flotante -> se guarda en el inventario.
-- Acercate al monticulo de polvo -> aviso "Usa la escoba / [I] Abrir inventario y equipar escoba".
-- I -> clic en la escoba (queda equipada) -> I para cerrar.
-- E -> barre: salen particulas, el polvo baja, queda un pequeno crater
-  y el brazo aparece flotando. Tocalo para guardarlo en el inventario.
+RECORRIDO
+---------
+El MoonBot aparece junto a la ESTACION CENTRAL (apagada) y la escoba esta enfrente.
+1) Escoba -> montículo de polvo lunar -> [E] barrer -> BRAZO ROBOTICO (ficha ITEM 1).
+2) Equipa el brazo -> chatarra de placas de acero -> [E] apartar -> CELDA DE BATERIA.
+3) Camara de television -> [E] con el brazo la levanta -> ventana con el esquema
+   (lente, asa, tubo vidicon, parte trasera, cuerpo, tripode). Arrastra la bateria
+   del "Inventario del robot" al compartimiento de bateria (ficha ITEM 2).
+4) Rocas -> [E] con el brazo las aparta -> CILINDRO SNAP-27 (ficha ITEM 3).
+5) Estacion central -> [E] instalar SNAP-27 -> se encienden las luces.
+Al completar brazo + camara + estacion se abre el HISTORICAL ARCHIVE.
+RADAR GUIADO (onda azul): se activa al conseguir una herramienta y apunta al
+siguiente paso: escoba -> polvo, brazo -> chatarra (bateria) -> camara,
+camara lista -> rocas (generador) -> estacion. Al terminar se apaga.
+Logica en Escenas/sonda_localizadora.gd (_paso_actual); cada zona tiene "guia".
+INTRO: el robot no se mueve ni interactua hasta que termina el texto inicial.
+Todos los textos del juego estan en ingles. La interfaz esta ajustada a 800x800.
+La herramienta equipada se ve abajo a la derecha girando, con el robot que la
+uso y para que la uso. En el inventario, pasa el mouse sobre un objeto para ver
+esa misma informacion (datos "robot" y "uso" en ITEMS de Scripts/inventario.gd).
 
-ARCHIVOS NUEVOS / CAMBIADOS
----------------------------
-Scripts/inventario.gd                         autoload "Inventario" (registrado en project.godot)
-Scripts/objeto_recogible.gd                   objeto flotante que se recoge al tocarlo
-Scripts/zona_polvo_lunar.gd                   zona de excavacion
-Escenas/Interactuables/zona_polvo_lunar.tscn  monticulo + crater + particulas
-Escenas/Interactuables/brazo_robotico.tscn    premio flotante
-Escenas/Interactuables/escoba.tscn            ahora usa objeto_recogible.gd
-Escenas/NivelLuna.tscn                        se agregaron la escoba y la zona
+ARCHIVOS
+--------
+Scripts/inventario.gd          autoload "Inventario": inventario, avisos, fichas, archivo historico
+Scripts/zona_interaccion.gd    base de todas las zonas (avisos, tecla E, animacion de herramienta)
+Scripts/zona_polvo_lunar.gd    polvo + crater (escoba)
+Scripts/zona_obstaculos.gd     chatarra / rocas que se apartan con el brazo
+Scripts/camara_reparable.gd    camara que se levanta y abre el esquema
+Scripts/ventana_camara.gd      ventana del esquema con arrastrar y soltar (usa popup_kit)
+Scripts/estacion_central.gd    estacion que se enciende con el SNAP-27
+Scripts/objeto_recogible.gd    piezas flotantes que se recogen al tocarlas
+Escenas/Interactuables/        zona_polvo_lunar, chatarra_bateria, rocas_snap27,
+                               estacion_central (domo + modulos), brazo_robotico, bateria, snap27, escoba,
+                               camara_westinghouse (ahora con script)
+Escenas/UI/ventana_camara.tscn
+Escenas/sonda_localizadora.gd  el radar se activa al conseguir una herramienta
+Escenas/NivelLuna.tscn         se agregaron todas las zonas y se movio el MoonBot
 
-PERSONALIZAR (inspector de ZonaPolvoLunar)
-------------------------------------------
-herramienta_requerida, premio_escena, altura_premio, mensaje, duracion_barrido.
-Nuevos objetos: agregalos al diccionario ITEMS en Scripts/inventario.gd.
+TEXTOS
+------
+Las fichas y el archivo historico estan en Scripts/inventario.gd (ITEMS y ARCHIVO_TEXTO).
+La fuente UFO50Tall no tiene acentos ni signos como el guion largo, por eso van sin ellos.

@@ -19,6 +19,9 @@ func mostrar_textos(nuevas_lineas: Array, se_puede_pasar: bool = true) -> void:
 	lineas_dialogo = nuevas_lineas
 	indice_actual = 0
 	permite_input = se_puede_pasar # Guardamos si el jugador puede usar Enter
+	var pista = get_node_or_null("Panel/Continuar")
+	if pista:
+		pista.visible = se_puede_pasar
 	show()
 	_cargar_linea()
 

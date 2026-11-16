@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/objeto_recogible.gd" id="1_obj"]
+[ext_resource type="PackedScene" path="res://Models/Objetos/SNAP27_ALSEP_Voxel.glb" id="2_mod"]
+
+[sub_resource type="SphereShape3D" id="Shape_r"]
+radius = 1.5
+
+[node name="CilindroSNAP27" type="Area3D" groups=["objeto_clave"]]
+script = ExtResource("1_obj")
+item_id = "snap27"
+velocidad_rotacion = 1.5
+
+[node name="Modelo" parent="." instance=ExtResource("2_mod")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.06, -0.6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("Shape_r")

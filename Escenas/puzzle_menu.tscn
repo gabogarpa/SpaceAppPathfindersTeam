@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cyiaqpep5ejw7" path="res://popup_kit/puzzle_popup.gd" id="1_m8ts5"]
 [ext_resource type="Script" uid="uid://cjac1014fiqy4" path="res://popup_kit/drop_slot.gd" id="2_hd6n7"]
-[ext_resource type="Texture2D" uid="uid://boiq8ionekkmg" path="res://Images/Camara.png" id="3_d2apv"]
-[ext_resource type="Texture2D" uid="uid://cvmchud23ssr6" path="res://Images/Bateria.png" id="4_d6flk"]
+[ext_resource type="Texture2D" uid="uid://boiq8ionekkmg" path="res://Models/Objetos/Camara.png" id="3_d2apv"]
+[ext_resource type="Texture2D" uid="uid://cvmchud23ssr6" path="res://Models/Objetos/Bateria.png" id="4_d6flk"]
 [ext_resource type="Script" uid="uid://0wn0qo2nt7gb" path="res://popup_kit/draggable_item.gd" id="5_46w70"]
 
 [node name="MenuPuzzle" type="Control" unique_id=221543654 node_paths=PackedStringArray("close_button")]

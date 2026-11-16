@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bfkg6thx6ixis"]
 
 [ext_resource type="Script" uid="uid://ex88hy2rtnxb" path="res://Scripts/terrenoMars.gd" id="1_aigjn"]
-[ext_resource type="Script" uid="uid://5nlylol3715" path="res://Scripts/nivel_marte.gd" id="1_w1toi"]
 [ext_resource type="ArrayMesh" uid="uid://3o23y55n5a3f" path="res://Models/MarteColor/Marte-0.obj" id="2_aigjn"]
 [ext_resource type="ArrayMesh" uid="uid://b1lxijonij3va" path="res://Models/MarteColor/Marte-1.obj" id="3_07r8j"]
 [ext_resource type="Shape3D" uid="uid://bw1sg21rytrke" path="res://Colisions/Mars/new_concave_polygon_shape_3d.tres" id="3_ge06v"]
@@ -36,30 +35,9 @@
 [ext_resource type="Shape3D" uid="uid://ckaso6uaks6ag" path="res://Colisions/Mars/MarsCollisionShape15.tres" id="31_fxvwn"]
 [ext_resource type="Shape3D" uid="uid://b26g3ayna1qev" path="res://Colisions/Mars/MarsCollisionShape16.tres" id="33_syl8u"]
 [ext_resource type="Shader" uid="uid://doff2xn3lxu33" path="res://Shaders/NivelLuna.gdshader" id="35_pogxw"]
-[ext_resource type="ArrayMesh" uid="uid://b7i778vrwfcp4" path="res://Models/Palo.obj" id="36_nbi4q"]
-[ext_resource type="PackedScene" uid="uid://c8e5526d660ch" path="res://Escenas/caja_texto.tscn" id="37_1ikxt"]
-[ext_resource type="ArrayMesh" uid="uid://dg157dxg75s7b" path="res://Models/Cilindros.obj" id="37_bwxi5"]
-[ext_resource type="PackedScene" uid="uid://cukvqaovwh1tm" path="res://Escenas/Interactuables/Mision3/solar_panel_petal.tscn" id="38_uapwk"]
-[ext_resource type="ArrayMesh" uid="uid://c8ha42q0sbxea" path="res://Models/Cajas.obj" id="39_3mu4p"]
-[ext_resource type="PackedScene" uid="uid://cg5n0ksw11n48" path="res://Escenas/Interactuables/Mision3/anti_static_brush.tscn" id="40_3mu4p"]
-[ext_resource type="PackedScene" uid="uid://bxs6qyq0jeyom" path="res://Escenas/Interactuables/Mision3/pathfinder_lander.tscn" id="42_xaidg"]
-[ext_resource type="PackedScene" uid="uid://djjixfxmwlsmf" path="res://Escenas/Interactuables/Mision3/steel_chisel.tscn" id="43_k0fhb"]
-[ext_resource type="PackedScene" uid="uid://d3m12fhwcphaq" path="res://Escenas/Interactuables/Mision3/sojouner.tscn" id="44_h1u58"]
-[ext_resource type="PackedScene" uid="uid://xxdolgrunebi" path="res://Escenas/Interactuables/Mision3/iman.tscn" id="46_fxvwn"]
-[ext_resource type="PackedScene" uid="uid://cc35gd1g1ii6r" path="res://Escenas/Interactuables/Mision3/rocker_boogie.tscn" id="47_syl8u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0emdt"]
 size = Vector3(106.54321, 10.716797, 1.9949951)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0emdt"]
-albedo_color = Color(0.83889705, 0.83889705, 0.838897, 1)
-metallic = 1.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fr1is"]
-size = Vector3(3.6137085, 1.9489746, 3.9483032)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xgul3"]
-size = Vector3(1, 1.6157227, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gca50"]
 shader = ExtResource("35_pogxw")
@@ -75,7 +53,6 @@ background_mode = 2
 sky = SubResource("Sky_pl24t")
 
 [node name="NivelMarte" type="Node3D" unique_id=2031046114]
-script = ExtResource("1_w1toi")
 
 [node name="Terreno" type="Node3D" parent="." unique_id=844660]
 script = ExtResource("1_aigjn")
@@ -262,72 +239,12 @@ shape = ExtResource("33_syl8u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.335213, 4.8583984, 45.96144)
 shape = SubResource("BoxShape3D_0emdt")
 
-[node name="Cajas" type="MeshInstance3D" parent="Terreno" unique_id=1459819437]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.731987, 3.7499332, 38.593185)
-material_override = SubResource("StandardMaterial3D_0emdt")
-mesh = ExtResource("39_3mu4p")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/Cajas" unique_id=1388302425]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/Cajas/StaticBody3D" unique_id=1839529118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.927132, 1.0417147, 1.7589989)
-shape = SubResource("BoxShape3D_fr1is")
-
-[node name="Palo1" type="MeshInstance3D" parent="Terreno" unique_id=1945108141]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.120716, 3.8213038, 43.257393)
-mesh = ExtResource("36_nbi4q")
-
-[node name="Palo2" type="MeshInstance3D" parent="Terreno" unique_id=2142771876]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.759666, 3.8973293, 43.469776)
-mesh = ExtResource("36_nbi4q")
-
-[node name="Palo3" type="MeshInstance3D" parent="Terreno" unique_id=1176539835]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.179968, 3.8436165, 49.490265)
-mesh = ExtResource("36_nbi4q")
-
-[node name="Palo4" type="MeshInstance3D" parent="Terreno" unique_id=1116914037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.67575, 3.6401858, 49.506382)
-mesh = ExtResource("36_nbi4q")
-
-[node name="Cilindros" type="MeshInstance3D" parent="Terreno" unique_id=722156044]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.503082, 2.8424835, 38.292847)
-mesh = ExtResource("37_bwxi5")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Terreno/Cilindros" unique_id=34740269]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terreno/Cilindros/StaticBody3D" unique_id=55440386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.852242, 0.30786133, 2.8981476)
-shape = SubResource("BoxShape3D_xgul3")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1212595775]
 transform = Transform3D(-2.4510593e-08, 0.9974324, -0.07161543, 3.6192763e-08, 0.07161543, 0.9974324, 1, 2.1855701e-08, -3.7855177e-08, 22.401745, 32.143196, -3.4106598)
-light_energy = 5.994
+light_energy = 2.064
 
 [node name="MoonBot" parent="." unique_id=330879505 instance=ExtResource("3_y4r3m")]
-transform = Transform3D(1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, 1, 45.748882, 3.085997, 42.091)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 37.6719, 6.801058, 33.62386)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=106632202]
 environment = SubResource("Environment_w1toi")
-
-[node name="CajaTexto" parent="." unique_id=308297068 instance=ExtResource("37_1ikxt")]
-
-[node name="SolarPanelPetal" parent="." unique_id=326125129 groups=["objeto_clave"] instance=ExtResource("38_uapwk")]
-transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 3.3098745, 3.580317, 41.239353)
-
-[node name="AntiStaticBrush" parent="." unique_id=1640111359 instance=ExtResource("40_3mu4p")]
-transform = Transform3D(1.30243e-07, -0.11638547, -0.9932041, 1.5262112e-08, 0.9932041, -0.11638547, 1, 0, 1.3113416e-07, 34.0286, 3.6488948, 39.28187)
-
-[node name="PathfinderLander" parent="." unique_id=1935735213 instance=ExtResource("42_xaidg")]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 51.460484, 4.1582737, -19.689354)
-
-[node name="SteelChisel" parent="." unique_id=323391021 instance=ExtResource("43_k0fhb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.551132, 3.9478674, -16.572586)
-
-[node name="Sojouner" parent="." unique_id=675773011 instance=ExtResource("44_h1u58")]
-transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, 18.498255, 2.9965754, -14.264243)
-
-[node name="Iman" parent="." unique_id=1503137034 instance=ExtResource("46_fxvwn")]
-transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 76.35603, 3.7738013, 41.2241)
-
-[node name="RockerBoogie" parent="." unique_id=323793286 instance=ExtResource("47_syl8u")]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 33.32648, 3.0675712, 7.3461747)
