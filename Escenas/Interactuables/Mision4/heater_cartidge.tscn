@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d4lvav5m2sblh"]
+
+[ext_resource type="PackedScene" uid="uid://mxt7dj7tcfto" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/RHU_Heater_Cartridge_Voxel.glb" id="1_lvp4v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 3.2334583
+
+[node name="HeaterCartidge" type="Node3D" unique_id=1078017345]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=460865096]
+
+[node name="RHU_Heater_Cartridge_Voxel2" parent="Area3D" unique_id=1783318300 instance=ExtResource("1_lvp4v")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=251146725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0249299, 0)
+shape = SubResource("SphereShape3D_0emdt")

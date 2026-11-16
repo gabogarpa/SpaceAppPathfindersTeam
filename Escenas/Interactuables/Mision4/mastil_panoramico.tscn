@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bkfmmvedgap58"]
+
+[ext_resource type="PackedScene" uid="uid://e8bl5uenqm73" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Pancam Panoramic Mast (Opportunity).glb" id="1_ok5ld"]
+
+[node name="MastilPanoramico" type="Node3D" unique_id=258367259]
+
+[node name="Pancam Panoramic Mast (Opportunity)" parent="." unique_id=136357590 instance=ExtResource("1_ok5ld")]

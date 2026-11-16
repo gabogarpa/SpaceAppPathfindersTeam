@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dr1m0sgy74fk1"]
+
+[ext_resource type="PackedScene" uid="uid://b6qiv5bjeqx" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/IDD Robotic Arm and RAT Tool (Opportunity).glb" id="1_jxvw3"]
+
+[node name="BrazoRoboticoIDD" type="Node3D" unique_id=1194214427]
+
+[node name="IDD Robotic Arm and RAT Tool (Opportunity)" parent="." unique_id=1613126754 instance=ExtResource("1_jxvw3")]

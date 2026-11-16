@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cr8xky5dqux5g" path="res://Escenas/MoonBot.tscn" id="1_bkivu"]
 [ext_resource type="Script" uid="uid://b7orh8fdqfvvf" path="res://Scripts/CamaraViaje.gd" id="2_4xmx7"]
-[ext_resource type="PackedScene" uid="uid://ewnj2labst0" path="res://Models/Nave piso.glb" id="3_d7j25"]
+[ext_resource type="PackedScene" uid="uid://c0exa8su6yejs" path="res://Models/Nave_piso_recuadro_central.glb" id="3_d7j25"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0emdt"]
 
@@ -103,4 +103,4 @@ spot_angle_attenuation = 0.09807312
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=2090473476]
 
-[node name="Entorno_Interior_Modular_80x80" parent="." unique_id=1924849885 instance=ExtResource("3_d7j25")]
+[node name="Entorno_Interior_Modular_80x81" parent="." unique_id=1177449444 instance=ExtResource("3_d7j25")]

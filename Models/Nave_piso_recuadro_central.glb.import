@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ewnj2labst0"
-path="res://.godot/imported/Nave piso.glb-f826ead47fd961e2df9e6332ac157f99.scn"
+uid="uid://c0exa8su6yejs"
+path="res://.godot/imported/Nave_piso_recuadro_central.glb-1564bde2fb2332666ed6ba0cb53979af.scn"
 
 [deps]
 
-source_file="res://Models/Nave piso.glb"
-dest_files=["res://.godot/imported/Nave piso.glb-f826ead47fd961e2df9e6332ac157f99.scn"]
+source_file="res://Models/Nave_piso_recuadro_central.glb"
+dest_files=["res://.godot/imported/Nave_piso_recuadro_central.glb-1564bde2fb2332666ed6ba0cb53979af.scn"]
 
 [params]
 

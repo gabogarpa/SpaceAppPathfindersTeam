@@ -5,7 +5,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 2.671934
 
-[node name="CamaraWestinghouse" type="Area3D" unique_id=1031537781 groups=["objeto_clave"]]
+[node name="CamaraWestinghouse" type="Area3D" unique_id=1031537781]
 
 [node name="Camara_Westinghouse_Voxel2" parent="." unique_id=1493423484 instance=ExtResource("1_tyedf")]
 

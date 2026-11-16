@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4g6dtvmum2an"]
+
+[ext_resource type="PackedScene" uid="uid://b103dmaohe58s" path="res://Models/Robots/MISSION 04 THE VERY LAST SIGNAL/Opportunity.glb" id="1_dosba"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
+radius = 3.7430184
+
+[node name="Opportuniyu" type="Node3D" unique_id=1563865357]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2074512585]
+
+[node name="Opportunity" parent="Area3D" unique_id=1688569988 instance=ExtResource("1_dosba")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=201915113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3463273, 1.580626, 0)
+shape = SubResource("SphereShape3D_0emdt")

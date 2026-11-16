@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d4njnx3w0lhk3"]
+
+[ext_resource type="PackedScene" uid="uid://c7dg44p8eun7a" path="res://Models/Objetos/MISSION 03 THE FIRST FOOTPRINTS/APXS Spectrometer (Sojourner).glb" id="1_8fvbu"]
+
+[node name="EspectrometroAPXS" type="Node3D" unique_id=1675959178]
+
+[node name="APXS Spectrometer (Sojourner)" parent="." unique_id=1750891318 instance=ExtResource("1_8fvbu")]

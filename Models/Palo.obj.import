@@ -9,6 +9,7 @@ path="res://.godot/imported/Palo.obj-1207b09a0842c7e3e173dd6bf817cb13.mesh"
 [deps]
 
 files=["res://.godot/imported/Palo.obj-1207b09a0842c7e3e173dd6bf817cb13.mesh"]
+
 source_file="res://Models/Palo.obj"
 dest_files=["res://.godot/imported/Palo.obj-1207b09a0842c7e3e173dd6bf817cb13.mesh", "res://.godot/imported/Palo.obj-1207b09a0842c7e3e173dd6bf817cb13.mesh"]
 

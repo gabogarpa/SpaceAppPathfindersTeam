@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dgjiwd4je8r2q"]
+
+[ext_resource type="PackedScene" uid="uid://ngaodmnc5c3d" path="res://Models/Objetos/MISSION 04 THE VERY LAST SIGNAL/Nueva carpeta/Solar Panel Array (Opportunity).glb" id="1_yg2id"]
+
+[node name="PanelSolarDelta" type="Node3D" unique_id=533327507]
+
+[node name="Solar Panel Array (Opportunity)" parent="." unique_id=559030870 instance=ExtResource("1_yg2id")]
