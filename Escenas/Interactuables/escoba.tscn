@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://d1hw8l6mk71mr"]
 
+[ext_resource type="Script" path="res://Scripts/objeto_recogible.gd" id="1_obj"]
 [ext_resource type="PackedScene" uid="uid://dsnbuompra2tl" path="res://Models/Objetos/Escoba_Voxel.glb" id="1_kf78a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0emdt"]
 radius = 2.453951
 
 [node name="Escoba" type="Area3D" unique_id=1452314870]
+script = ExtResource("1_obj")
+item_id = "escoba"
 
 [node name="Escoba_Voxel2" parent="." unique_id=1588215097 instance=ExtResource("1_kf78a")]
 

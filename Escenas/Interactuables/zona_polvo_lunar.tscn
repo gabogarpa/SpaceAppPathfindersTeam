@@ -1,0 +1,110 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/zona_polvo_lunar.gd" id="1_zona"]
+[ext_resource type="PackedScene" path="res://Escenas/Interactuables/brazo_robotico.tscn" id="2_brazo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_polvo"]
+frequency = 0.06
+
+[sub_resource type="Gradient" id="Gradient_polvo"]
+colors = PackedColorArray(0.8, 0.8, 0.8, 1, 1, 1, 1, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_polvo"]
+width = 64
+height = 64
+seamless = true
+color_ramp = SubResource("Gradient_polvo")
+noise = SubResource("FastNoiseLite_polvo")
+
+[sub_resource type="StandardMaterial3D" id="Mat_polvo"]
+albedo_color = Color(0.6, 0.59, 0.56, 1)
+albedo_texture = SubResource("NoiseTexture2D_polvo")
+roughness = 1.0
+specular_mode = 2
+texture_filter = 0
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="Mat_fondo_crater"]
+albedo_color = Color(0.35, 0.35, 0.34, 1)
+albedo_texture = SubResource("NoiseTexture2D_polvo")
+roughness = 1.0
+specular_mode = 2
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_polvo"]
+material = SubResource("Mat_polvo")
+radius = 1.6
+height = 3.2
+radial_segments = 24
+rings = 12
+
+[sub_resource type="TorusMesh" id="TorusMesh_borde"]
+material = SubResource("Mat_polvo")
+inner_radius = 1.1
+outer_radius = 1.7
+rings = 24
+ring_segments = 8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fondo"]
+material = SubResource("Mat_fondo_crater")
+top_radius = 1.2
+bottom_radius = 1.2
+height = 0.05
+radial_segments = 24
+
+[sub_resource type="BoxMesh" id="BoxMesh_grano"]
+material = SubResource("Mat_polvo")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_zona"]
+height = 4.0
+radius = 3.0
+
+[node name="ZonaPolvoLunar" type="Area3D" groups=["objeto_clave"]]
+script = ExtResource("1_zona")
+premio_escena = ExtResource("2_brazo")
+
+[node name="Monticulo" type="Node3D" parent="."]
+
+[node name="Principal" type="MeshInstance3D" parent="Monticulo"]
+transform = Transform3D(1, 0, 0, 0, 0.32, 0, 0, 0, 1, 0, -0.18, 0)
+mesh = SubResource("SphereMesh_polvo")
+
+[node name="Lateral1" type="MeshInstance3D" parent="Monticulo"]
+transform = Transform3D(0.55, 0, 0, 0, 0.2, 0, 0, 0, 0.55, 1.0, -0.15, 0.5)
+mesh = SubResource("SphereMesh_polvo")
+
+[node name="Lateral2" type="MeshInstance3D" parent="Monticulo"]
+transform = Transform3D(0.45, 0, 0, 0, 0.18, 0, 0, 0, 0.45, -0.8, -0.15, -0.7)
+mesh = SubResource("SphereMesh_polvo")
+
+[node name="Crater" type="Node3D" parent="."]
+visible = false
+
+[node name="Borde" type="MeshInstance3D" parent="Crater"]
+transform = Transform3D(1, 0, 0, 0, 0.45, 0, 0, 0, 1, 0, 0.02, 0)
+mesh = SubResource("TorusMesh_borde")
+
+[node name="Fondo" type="MeshInstance3D" parent="Crater"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("CylinderMesh_fondo")
+
+[node name="Particulas" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+emitting = false
+amount = 60
+lifetime = 0.9
+mesh = SubResource("BoxMesh_grano")
+emission_shape = 3
+emission_box_extents = Vector3(1.2, 0.1, 1.2)
+direction = Vector3(0, 1, 0)
+spread = 60.0
+gravity = Vector3(0, -1.62, 0)
+initial_velocity_min = 1.5
+initial_velocity_max = 3.5
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_zona")

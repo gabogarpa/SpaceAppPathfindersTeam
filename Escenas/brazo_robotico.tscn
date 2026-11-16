@@ -1,0 +1,75 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Escenas/objeto_recogible.gd" id="1_script"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_metal"]
+albedo_color = Color(0.62, 0.66, 0.72, 1)
+metallic = 0.6
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="Mat_junta"]
+albedo_color = Color(0.9, 0.5, 0.1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_brazo"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 0.9
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_antebrazo"]
+top_radius = 0.07
+bottom_radius = 0.07
+height = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_junta"]
+radius = 0.13
+height = 0.26
+
+[sub_resource type="BoxMesh" id="BoxMesh_garra"]
+size = Vector3(0.26, 0.12, 0.14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dedo"]
+size = Vector3(0.06, 0.2, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_alcance"]
+radius = 2.0
+
+[node name="BrazoRobotico" type="Area3D"]
+script = ExtResource("1_script")
+id_objeto = "brazo_robotico"
+
+[node name="Hombro" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+mesh = SubResource("SphereMesh_junta")
+surface_material_override/0 = SubResource("Mat_junta")
+
+[node name="Brazo" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_brazo")
+surface_material_override/0 = SubResource("Mat_metal")
+
+[node name="Codo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+mesh = SubResource("SphereMesh_junta")
+surface_material_override/0 = SubResource("Mat_junta")
+
+[node name="Antebrazo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6428, -0.766, 0, 0.766, 0.6428, 0, 0, 0, 1, 0.268, 0.675, 0)
+mesh = SubResource("CylinderMesh_antebrazo")
+surface_material_override/0 = SubResource("Mat_metal")
+
+[node name="Garra" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6428, -0.766, 0, 0.766, 0.6428, 0, 0, 0, 1, 0.58, 0.93, 0)
+mesh = SubResource("BoxMesh_garra")
+surface_material_override/0 = SubResource("Mat_junta")
+
+[node name="DedoA" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6428, -0.766, 0, 0.766, 0.6428, 0, 0, 0, 1, 0.7386, 0.9587, 0)
+mesh = SubResource("BoxMesh_dedo")
+surface_material_override/0 = SubResource("Mat_metal")
+
+[node name="DedoB" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6428, -0.766, 0, 0.766, 0.6428, 0, 0, 0, 1, 0.6358, 1.0813, 0)
+mesh = SubResource("BoxMesh_dedo")
+surface_material_override/0 = SubResource("Mat_metal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_alcance")

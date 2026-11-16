@@ -30,7 +30,7 @@ func interact() -> void:
 		return
 	var ctx := context.duplicate()
 	ctx["source"] = self
-	var popup := PopupManager.open(popup_scene, ctx)
+	var popup: PuzzlePopup = PopupManager.open(popup_scene, ctx)
 	popup.solved.connect(_on_popup_solved)
 	opened.emit(popup)
 

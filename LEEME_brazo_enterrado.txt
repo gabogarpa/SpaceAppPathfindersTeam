@@ -1,0 +1,35 @@
+MECANICA: BRAZO ROBOTICO ENTERRADO + ESCOBA
+===========================================
+
+Abrir: descomprime el zip y en Godot 4.7 usa Import > selecciona project.godot.
+La primera vez Godot reimporta los modelos (tarda un poco).
+
+Ya esta integrada en Escenas/NivelLuna.tscn (nodos "Escoba" y "ZonaPolvoLunar",
+justo frente al MoonBot). Para probar directo: abre NivelLuna.tscn y presiona F6.
+
+TECLAS
+------
+I = abrir/cerrar inventario      E = usar herramienta equipada
+
+FLUJO
+-----
+- Toca la escoba flotante -> se guarda en el inventario.
+- Acercate al monticulo de polvo -> aviso "Usa la escoba / [I] Abrir inventario y equipar escoba".
+- I -> clic en la escoba (queda equipada) -> I para cerrar.
+- E -> barre: salen particulas, el polvo baja, queda un pequeno crater
+  y el brazo aparece flotando. Tocalo para guardarlo en el inventario.
+
+ARCHIVOS NUEVOS / CAMBIADOS
+---------------------------
+Scripts/inventario.gd                         autoload "Inventario" (registrado en project.godot)
+Scripts/objeto_recogible.gd                   objeto flotante que se recoge al tocarlo
+Scripts/zona_polvo_lunar.gd                   zona de excavacion
+Escenas/Interactuables/zona_polvo_lunar.tscn  monticulo + crater + particulas
+Escenas/Interactuables/brazo_robotico.tscn    premio flotante
+Escenas/Interactuables/escoba.tscn            ahora usa objeto_recogible.gd
+Escenas/NivelLuna.tscn                        se agregaron la escoba y la zona
+
+PERSONALIZAR (inspector de ZonaPolvoLunar)
+------------------------------------------
+herramienta_requerida, premio_escena, altura_premio, mensaje, duracion_barrido.
+Nuevos objetos: agregalos al diccionario ITEMS en Scripts/inventario.gd.

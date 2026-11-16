@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d0r7ygmcaprfs"]
+
+[ext_resource type="ArrayMesh" uid="uid://c7r7wbws4k1dj" path="res://Models/MoonBot/MoonBot.obj" id="1_4k7m3"]
+[ext_resource type="Script" uid="uid://dc1n4uplr8xkk" path="res://character_body_3d.gd" id="2_c3o8o"]
+[ext_resource type="Script" uid="uid://boe13br02p0d4" path="res://Escenas/CameraBotScript.gd" id="3_c3o8o"]
+[ext_resource type="AudioStream" uid="uid://320ugojp61lp" path="res://Sounds/servo-motor-loop(3) (mp3cut.net).wav" id="4_lkcb7"]
+[ext_resource type="AudioStream" uid="uid://d17wlo3aqyrda" path="res://Sounds/servo-jump-onda1.wav" id="5_mich5"]
+[ext_resource type="Shader" uid="uid://dnmo8oisk204s" path="res://Escenas/MoonBot.gdshader" id="6_042cr"]
+
+[ext_resource type="Script" path="res://Escenas/almacen_ui.gd" id="7_almacen"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e75f7"]
+radius = 0.62353516
+height = 1.2591248
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0emdt"]
+shader = ExtResource("6_042cr")
+shader_parameter/pixel_resolution = 240.0
+
+[node name="MoonBot" type="Node3D" unique_id=330879505]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1011508836]
+floor_max_angle = 1.2217305
+floor_snap_length = 50.0
+script = ExtResource("2_c3o8o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1623695524]
+mesh = ExtResource("1_4k7m3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=115247336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6312181, 0.006)
+shape = SubResource("CapsuleShape3D_e75f7")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=899819553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5118175, 0)
+script = ExtResource("3_c3o8o")
+
+[node name="MotorAudio" type="AudioStreamPlayer" parent="CharacterBody3D" unique_id=537502904]
+stream = ExtResource("4_lkcb7")
+
+[node name="SaltoAudio" type="AudioStreamPlayer" parent="CharacterBody3D" unique_id=1815838737]
+stream = ExtResource("5_mich5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=204588339]
+
+[node name="FiltroRetro" type="ColorRect" parent="CanvasLayer" unique_id=991649501]
+material = SubResource("ShaderMaterial_0emdt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AlmacenUI" type="Label" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 16.0
+script = ExtResource("7_almacen")

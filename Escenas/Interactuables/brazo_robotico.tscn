@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/objeto_recogible.gd" id="1_obj"]
+[ext_resource type="PackedScene" uid="uid://ddftumtpk5daq" path="res://Models/Objetos/Brazo_Excavador_Voxel.glb" id="2_brazo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_brazo"]
+radius = 1.5
+
+[node name="BrazoRobotico" type="Area3D" groups=["objeto_clave"]]
+script = ExtResource("1_obj")
+item_id = "brazo_robotico"
+velocidad_rotacion = 1.5
+
+[node name="Modelo" parent="." instance=ExtResource("2_brazo")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.085, -0.42, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_brazo")

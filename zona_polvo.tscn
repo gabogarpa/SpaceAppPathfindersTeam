@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://c5qk8vrj2nmpt" path="res://Scripts/zona_polvo.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Escenas/brazo_robotico.tscn" id="2_brazo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_polvo"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_polvo"]
+albedo_color = Color(0.68, 0.66, 0.62, 1)
+roughness = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_zona"]
+radius = 3.5
+
+[node name="ZonaPolvo" type="Area3D"]
+script = ExtResource("1_script")
+escena_recompensa = ExtResource("2_brazo")
+
+[node name="Polvo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("SphereMesh_polvo")
+surface_material_override/0 = SubResource("Mat_polvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_zona")

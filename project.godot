@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PopupManager="*uid://c1ocovt8ii5dl"
+PopupManager="*res://popup_kit/popup_manager.gd"
+Inventario="*res://Scripts/inventario.gd"
 
 [display]
 
